@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
   m_Name: ColorGrading
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -1360,6 +1360,29 @@ MonoBehaviour:
   quality:
     overrideState: 0
     value: 2
+--- !u!114 &-1878383626528202092
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe6bb1a9129eadc48a9b0b6ca2009494, type: 3}
+  m_Name: postprocesstestPPSSettings
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  _TextureSample1:
+    overrideState: 1
+    value: {fileID: 2800000, guid: ee8f1136ad61ed14abb5e5f0ffa3e990, type: 3}
+    defaultState: 1
+  _Vector1:
+    overrideState: 0
+    value: {x: 0, y: 0.12, z: 0, w: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1445,13 +1468,13 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0.14373444, g: 0.22346339, b: 0.8962264, a: 1}
+    value: {r: 0.11391955, g: 0.11777621, b: 0.1509434, a: 1}
   center:
     overrideState: 1
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.12
+    value: 0.278
   smoothness:
     overrideState: 0
     value: 0.2
