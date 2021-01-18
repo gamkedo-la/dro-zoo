@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
   m_Name: ColorGrading
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -25,19 +25,19 @@ MonoBehaviour:
     defaultState: 1
   tonemapper:
     overrideState: 1
-    value: 2
+    value: 1
   toneCurveToeStrength:
     overrideState: 0
-    value: 0
+    value: 0.248
   toneCurveToeLength:
     overrideState: 0
-    value: 0.5
+    value: 0.43
   toneCurveShoulderStrength:
     overrideState: 0
     value: 0
   toneCurveShoulderLength:
     overrideState: 0
-    value: 0.5
+    value: 0.66
   toneCurveShoulderAngle:
     overrideState: 0
     value: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
     value: 0
   contrast:
     overrideState: 1
-    value: 6
+    value: 30
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -1418,10 +1418,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 3.2
+    value: 6.3
   threshold:
     overrideState: 1
-    value: 2.78
+    value: 1.98
   softKnee:
     overrideState: 0
     value: 0.5
@@ -1474,7 +1474,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.278
+    value: 0.224
   smoothness:
     overrideState: 0
     value: 0.2
