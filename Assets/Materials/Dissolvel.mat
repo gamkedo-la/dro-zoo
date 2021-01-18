@@ -80,7 +80,7 @@ Material:
     - _Mode: 0
     - _Noisescale: 2.55
     - _OcclusionStrength: 1
-    - _Offset: -1.4
+    - _Offset: -2.12
     - _Opacitycutoff: 0
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
