@@ -5,13 +5,29 @@ using UnityEngine.InputSystem;
 
 public class MuteAudio : MonoBehaviour
 {
+    public InputActionAsset playerControls;
+    public AudioClip muteButtonAudio;
 
     private bool isMuted = false;
     private float waitForSFX = 0f;
     private float originalVolume;
-    public AudioClip muteButtonAudio;
+    private InputAction mute;
 
-    private void OnPlayerAudio(){
+    private void OnEnable() {
+        if(playerControls){
+        mute = playerControls.FindActionMap("PlayerControl").FindAction("PlayerAudio");
+        mute.performed += OnMute;
+        mute.Enable();
+        } else {
+            Debug.LogWarning("Mute Audio script in " + gameObject.name + " could not find a InputActionAsset");
+        }
+    }
+
+    private void OnDisable() {
+        mute.Disable();
+    }
+
+    private void OnMute(InputAction.CallbackContext context){
         HandleMute();
     }
 
