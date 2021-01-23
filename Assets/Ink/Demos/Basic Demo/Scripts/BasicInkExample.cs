@@ -2,6 +2,9 @@
 using UnityEngine.UI;
 using System;
 using Ink.Runtime;
+using TMPro;
+
+// tweaked ink example to use TMPro
 
 // This is a super bare bones example of how to play and display a ink story in Unity.
 public class BasicInkExample : MonoBehaviour {
@@ -65,7 +68,7 @@ public class BasicInkExample : MonoBehaviour {
 
 	// Creates a textbox showing the the line of text
 	void CreateContentView (string text) {
-		Text storyText = Instantiate (textPrefab) as Text;
+		TextMeshProUGUI storyText = Instantiate (textPrefab) as TextMeshProUGUI;
 		storyText.text = text;
 		storyText.transform.SetParent (canvas.transform, false);
 	}
@@ -77,7 +80,7 @@ public class BasicInkExample : MonoBehaviour {
 		choice.transform.SetParent (canvas.transform, false);
 		
 		// Gets the text from the button prefab
-		Text choiceText = choice.GetComponentInChildren<Text> ();
+		TextMeshProUGUI choiceText = choice.GetComponentInChildren<TextMeshProUGUI> ();
 		choiceText.text = text;
 
 		// Make the button expand to fit the text
@@ -104,7 +107,7 @@ public class BasicInkExample : MonoBehaviour {
 
 	// UI Prefabs
 	[SerializeField]
-	private Text textPrefab = null;
+	private TextMeshProUGUI textPrefab = null;
 	[SerializeField]
 	private Button buttonPrefab = null;
 }
