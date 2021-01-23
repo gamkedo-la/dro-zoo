@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
+  m_Name: Ink text scene
+  m_EditorClassIdentifier: 
+  settings:
+  - {fileID: 8226347538035838592}
+--- !u!114 &8226347538035838592
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03006dc471513994daf1f084e156ba83, type: 3}
+  m_Name: postprocesstestPPSSettings
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  _TextureSample1:
+    overrideState: 1
+    value: {fileID: 2800000, guid: 85947afebfb466a4cb133e40c7a7d32b, type: 3}
+    defaultState: 1
+  _Vector1:
+    overrideState: 1
+    value: {x: 0, y: -0.12, z: 0, w: 0}
