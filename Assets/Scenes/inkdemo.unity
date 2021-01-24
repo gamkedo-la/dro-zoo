@@ -659,7 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e957d58a4584a8894329531ec0b096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSONAsset: {fileID: 4900000, guid: 6cf48bb6d89824cc69e35b43f9a1aca6, type: 3}
+  inkJSONAsset: {fileID: 4900000, guid: 78acd8bf6a1ad804397ea2f5c96929a4, type: 3}
   canvas: {fileID: 2146045942}
   textPrefab: {fileID: 7192124682576498173, guid: ddf681f5f912e824bab2c9813dc4c4d2,
     type: 3}
