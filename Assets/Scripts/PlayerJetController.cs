@@ -139,7 +139,6 @@ public class PlayerJetController : MonoBehaviour
         ScaleThruster(rightThrusterParticleSystem, HandleSideThrustModifier(), sideThrusterParticleStartSize);
         
         RotateSideThrusters();
-        Debug.Log("upvector is zero " + (upVector == Vector2.zero));
     }
 
     private void PositionMainThruster(Vector3 currentPos)
