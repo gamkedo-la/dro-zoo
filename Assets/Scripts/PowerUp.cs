@@ -9,23 +9,36 @@ public class PowerUp : MonoBehaviour
     [Header("Power Up settings:")]
     [Tooltip("Is the power up triggered once or over time")]
     [SerializeField] private bool isTriggeredOverTime = false;
-    [Tooltip("Seconds to give payload again")]
+    [SerializeField] private int overTimeIncrement = 0;
+    [Tooltip("Seconds to stay in trigger")]
     [SerializeField] private float triggerTimerInSeconds = 1;
+    [Tooltip("Times needed to trigger")]
     [SerializeField] private int maxTimesUsed = 5;
-    [Tooltip("Seconds to reset the power up for reuse")]
-    [SerializeField] private float resetTime = 10f;
+    //[Tooltip("Seconds to reset the power up for reuse")]
+    //[SerializeField] private float resetTime = 10f;
 
     [Header("Trigger Collider Settings:")]
     [SerializeField] Collider triggerCollider;
 
+    [Header("Object Controlled By Trigger")]
+    [SerializeField] GameObject objectToTrigger;
+
     private GameObject player;
     private bool playerIsInTrigger = false;
-    private bool needsToReset = false;
-    public float enterTime = 0f;
-    public float previousEnterTime = 0f;
-    public int timesUsed = 0;
-    public float exitTime = 0f;
+    private bool isEnterLeft = false;
+    private bool isExitLeft = false;
+    //private float enterTime = 0f;
+    public int timesUsed {
+        get {return timesUsed;}
+    }
+    private float exitTime = 0f;
+    public int currentPowerLevel {
+        get {return powerLevel;}
+        set {powerLevel = value;}
+    }
+    private bool isActivated;
 
+    private int powerLevel = 0;
 
 
     private void Start() {
@@ -41,52 +54,80 @@ public class PowerUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         //on entering trigger, set time when the player entered it, if the player has reached the maximum amount of uses
-        enterTime = Time.time;
-        CheckForReset(enterTime);
         playerIsInTrigger = true;
-        if(!isTriggeredOverTime){
-            PowerUpPayload();
-        } else {
-            StartCoroutine(PowerUpCycle(triggerTimerInSeconds, triggerCollider));
-        }
-        
-    }
-
-    IEnumerator PowerUpCycle(float triggerTimerInSeconds, Collider triggerCollider)
-    {
-        while (playerIsInTrigger){
-            PowerUpPayload();
-            yield return new WaitForSeconds(triggerTimerInSeconds);
+        isActivated = true;
+        //enterTime = Time.time;
+        isEnterLeft = CheckMovementDirection(other.gameObject);
+        if(isTriggeredOverTime){
+            StartCoroutine("PowerUpCycle");
         }
     }
 
     private void OnTriggerExit(Collider other) {
+        //on entering trigger, set time when the player entered it, if the player has reached the maximum amount of uses
         playerIsInTrigger = false;
-        //if all uses are used up, needs to reset
-        if(timesUsed == maxTimesUsed){
-            needsToReset = true;
-        }
-        if(!needsToReset){
-            exitTime = Time.time;
-        }
+        isActivated = false;
+        isExitLeft = CheckMovementDirection(other.gameObject);
+        ResetPowerLevel();
     }
 
-    public void PowerUpPayload(){
-        //override this method to provide a payload to the player from the powerup
-        if(timesUsed < maxTimesUsed){
-            Debug.Log("Payload given!");
-            timesUsed ++;
-        }
+    private void OnTriggerStay(Collider other) {
+        playerIsInTrigger = true;
     }
 
-    private void CheckForReset(float enterTime)
+    IEnumerator PowerUpCycle()
     {
-        //if player re-enters the trigger at time 20f, and has exited the trigger at 15f, we do not yet reset the powerup
-        if(enterTime - exitTime > resetTime){
-            Debug.Log("Reset power up!");
-            timesUsed = 0;
-            needsToReset = false;
+        while (playerIsInTrigger){
+            powerLevel = powerLevel + overTimeIncrement;
+            yield return new WaitForSeconds(triggerTimerInSeconds);
         }
     }
 
+    private void ResetPowerLevel(){
+        powerLevel = 0;
+    }
+
+    private bool CheckMovementDirection(GameObject obj)
+    {
+        // when called, check the direction to object in parameter. Boolean given tells if the object is triggered from the left on exit/enter
+        Vector3 direction = (obj.transform.position - this.transform.position).normalized;
+        bool isTriggeredFromLeft;
+        if(direction.x > 0){
+            isTriggeredFromLeft = false;
+        } else {
+            isTriggeredFromLeft = true;
+        }
+        return isTriggeredFromLeft;
+    }
+
+    /// <summary>
+     /// Returns Vector2 depicting direction of movement in and out of the trigger.
+     /// Only takes into account movement through the trigger.
+     /// </summary>
+     /// <returns>Returns normalized Vector2 left/right.</returns>
+    public Vector2 GetMovementDirection(){
+        Vector2 movementDirection = Vector2.zero;
+        if(isEnterLeft && !isExitLeft){ //left to right -> return right
+            movementDirection = Vector2.right;
+        } else if (!isEnterLeft && isExitLeft) { //right to left -> return left
+            movementDirection = Vector2.left;
+        }
+        return movementDirection;
+    }
+
+    /// <summary>
+     /// Returns true if the powerup has been triggered the maximum times used.
+     /// </summary>
+     /// <returns>Returns true if the powerup has been triggered the maximum times used.</returns>
+    public bool MaximumTimesUsedReached(){
+        return timesUsed >= maxTimesUsed;
+    }
+    
+    public float GetExitTime(){
+        return exitTime;
+    }
+
+    public bool GetIsActivated(){
+        return isActivated;
+    }
 }
