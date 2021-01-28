@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PowerUp : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PowerUp : MonoBehaviour
     [Tooltip("Is the power up triggered once or over time")]
     [SerializeField] private bool isTriggeredOverTime = false;
     [SerializeField] private int overTimeIncrement = 0;
+    [SerializeField] public bool isPartOfSequence = false;
     [Tooltip("Seconds to stay in trigger")]
     [SerializeField] private float triggerTimerInSeconds = 1;
     [Tooltip("Times needed to trigger")]
@@ -28,17 +30,21 @@ public class PowerUp : MonoBehaviour
     private bool isEnterLeft = false;
     private bool isExitLeft = false;
     //private float enterTime = 0f;
-    public int timesUsed {
+    private int timesUsed;
+    public int timesPowerUpUsed {
         get {return timesUsed;}
     }
     private float exitTime = 0f;
+    private int powerLevel = 0;
     public int currentPowerLevel {
         get {return powerLevel;}
         set {powerLevel = value;}
     }
     private bool isActivated;
-
-    private int powerLevel = 0;
+    public bool isPowerUpActivated{
+        get {return isActivated;}
+        set {isActivated = value;}
+    }
 
 
     private void Start() {
@@ -56,10 +62,12 @@ public class PowerUp : MonoBehaviour
         //on entering trigger, set time when the player entered it, if the player has reached the maximum amount of uses
         playerIsInTrigger = true;
         isActivated = true;
-        //enterTime = Time.time;
         isEnterLeft = CheckMovementDirection(other.gameObject);
         if(isTriggeredOverTime){
             StartCoroutine("PowerUpCycle");
+        }
+        if(isPartOfSequence){
+            HandleSequencePuzzleActivation();
         }
     }
 
@@ -129,5 +137,15 @@ public class PowerUp : MonoBehaviour
 
     public bool GetIsActivated(){
         return isActivated;
+    }
+
+    private void HandleSequencePuzzleActivation(){
+        //used to inform the parent Puzzle handler that this trigger was successfully activated
+        PowerUpSequencePuzzle puzzle = GetComponentInParent<PowerUpSequencePuzzle>();
+        if(!puzzle || puzzle == null){
+            Debug.LogWarning("PowerUp " + name + " was unable to locate power up puzzle sequence handler when activated");
+        } else {
+            puzzle.HandlePowerUpActivated(gameObject.GetComponent<PowerUp>());
+        }       
     }
 }
