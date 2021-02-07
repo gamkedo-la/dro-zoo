@@ -18,6 +18,8 @@ public class PowerUp : MonoBehaviour
     [SerializeField] private int maxTimesUsed = 5;
     //[Tooltip("Seconds to reset the power up for reuse")]
     //[SerializeField] private float resetTime = 10f;
+    [Tooltip("Will trigger collision start animations in Player")]
+    [SerializeField] private bool showAnimationsForPlayer = true;
 
     [Header("Trigger Collider Settings:")]
     [SerializeField] Collider triggerCollider;
@@ -69,6 +71,15 @@ public class PowerUp : MonoBehaviour
         if(isPartOfSequence){
             HandleSequencePuzzleActivation();
         }
+        if(showAnimationsForPlayer){
+            //if more control for showing an animation for the Player object is required, add conditions here
+            if(other.GetComponentInChildren<PlayerAnimationHandler>() != null){
+                other.GetComponentInChildren<PlayerAnimationHandler>().HandlePowerUpAnimation(true);
+            } else {
+                Debug.LogWarning("PowerUp " + name + " tried to access the colliding objects animation handler, but did not find one");
+            }
+            
+        }
     }
 
     private void OnTriggerExit(Collider other) {
@@ -77,6 +88,13 @@ public class PowerUp : MonoBehaviour
         isActivated = false;
         isExitLeft = CheckMovementDirection(other.gameObject);
         ResetPowerLevel();
+        if(showAnimationsForPlayer){
+            if(other.GetComponentInChildren<PlayerAnimationHandler>() != null){
+                other.GetComponentInChildren<PlayerAnimationHandler>().HandlePowerUpAnimation(false);
+            } else {
+                Debug.LogWarning("PowerUp " + name + " tried to access the colliding objects animation handler, but did not find one");
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other) {

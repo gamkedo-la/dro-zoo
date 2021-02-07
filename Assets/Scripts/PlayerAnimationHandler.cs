@@ -11,8 +11,6 @@ public class PlayerAnimationHandler : MonoBehaviour
     public InputActionAsset playerControls;
     [Header("Components from Player")]
     [SerializeField] Animator playerAnim;
-    //[SerializeField] GameObject playerMesh; //animate on the mesh level in order to not mess with movement
-    //[SerializeField] GameObject playerParent;
     [Header("Idle animation settings:")]
     [SerializeField] float timeBeforeIdleInSeconds = 5f;
 
@@ -40,6 +38,9 @@ public class PlayerAnimationHandler : MonoBehaviour
         }
     }
 
+
+    #region PlayerInput
+
     private void OnPlayerHeightCanceled(InputAction.CallbackContext obj)
     {
         isInput = false;
@@ -66,6 +67,7 @@ public class PlayerAnimationHandler : MonoBehaviour
         height.Disable();
     }
 
+    #endregion
 
 
     // Start is called before the first frame update
@@ -78,7 +80,14 @@ public class PlayerAnimationHandler : MonoBehaviour
     void Update()
     {
 
-        if(isInput){
+        HandleIdleAnimation();
+
+    }
+
+
+    private void HandleIdleAnimation()
+    {
+                if(isInput){
             isIdle = false;
             SetIsIdleInAnimator(isIdle);
         }
@@ -99,11 +108,16 @@ public class PlayerAnimationHandler : MonoBehaviour
             isIdle = true;
             SetIsIdleInAnimator(isIdle);
         }
-
     }
 
     private void SetIsIdleInAnimator(bool isIdle)
     {
         playerAnim.SetBool("IsIdle", isIdle);
     }
+
+    public void HandlePowerUpAnimation(bool t){ 
+        //this is controlled by PowerUp script -> when player enters or exits a power ups trigger this function gets called. 
+        playerAnim.SetBool("IsPoweringUp", t);
+    }
+
 }
