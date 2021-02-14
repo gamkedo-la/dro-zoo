@@ -17,7 +17,7 @@ public class BuildScript : MonoBehaviour
     public static void AndroidBuild()
     {
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
-        buildPlayerOptions.scenes = new[] { "Assets/Scenes/Bakedlightingdemo.unity"};
+        buildPlayerOptions.scenes = new[] { "Assets/Scenes/Drone storage.unity"};
         buildPlayerOptions.locationPathName = "Build//android/AndroidBuild.apk";
         buildPlayerOptions.target = BuildTarget.Android;
         buildPlayerOptions.options = BuildOptions.None;
@@ -40,7 +40,7 @@ public class BuildScript : MonoBehaviour
     public static void PCBuild()
     {
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
-        buildPlayerOptions.scenes = new[] { "Assets/Scenes/Bakedlightingdemo.unity"};
+        buildPlayerOptions.scenes = new[] { "Assets/Scenes/Drone storage.unity"};
         buildPlayerOptions.locationPathName = "Build//pcbuild/In_a_far_ship_darkly.exe";
         buildPlayerOptions.target = BuildTarget.StandaloneWindows;
         buildPlayerOptions.options = BuildOptions.None;
@@ -63,7 +63,7 @@ public class BuildScript : MonoBehaviour
     public static void WebGLBuild()
     {
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
-        buildPlayerOptions.scenes = new[] { "Assets/Scenes/Bakedlightingdemo.unity"};
+        buildPlayerOptions.scenes = new[] { "Assets/Scenes/Drone storage.unity"};
         buildPlayerOptions.locationPathName = "Build//webgl/";
         buildPlayerOptions.target = BuildTarget.WebGL;
         buildPlayerOptions.options = BuildOptions.None;

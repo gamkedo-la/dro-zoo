@@ -2469,7 +2469,7 @@ Transform:
   - {fileID: 67399420}
   - {fileID: 1458447556}
   m_Father: {fileID: 0}
-  m_RootOrder: 47
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 5.622, y: -191.86, z: 9.564}
 --- !u!1001 &582388783
 PrefabInstance:
@@ -6971,7 +6971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1568282917
 MonoBehaviour:
   m_ObjectHideFlags: 0
