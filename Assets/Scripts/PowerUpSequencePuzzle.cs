@@ -14,6 +14,9 @@ public class PowerUpSequencePuzzle : MonoBehaviour
         set{;}
     }
     private bool isMatch;
+    
+    [SerializeField] public MusicManager musicManager;
+    [SerializeField] public float musicIntensityGrowthAmount = 0.2f;
 
     [SerializeField] PuzzleListener puzzleListener;
 
@@ -55,9 +58,13 @@ public class PowerUpSequencePuzzle : MonoBehaviour
                     partialMatch = false;
                     ResetPowerUps(); //if the latest was not in the correct order, reset the whole puzzle
                     ResetActivatedList(); //clear list
+                    musicManager.intensity = 0.0f;
                     break;
                 }
             }
+            
+            // assuming we didn't break out above, we have now successfully activated the next piece of the puzzle
+            musicManager.intensity += musicIntensityGrowthAmount;
 
             if(activatedPowerUps.Count == powerUps.Count && partialMatch){
                 isMatch = true;
@@ -69,6 +76,7 @@ public class PowerUpSequencePuzzle : MonoBehaviour
     private void PuzzleCompleted()
     {
         puzzleListener.SetPuzzleCompleted(true);
+        musicManager.intensity = 1.0f; // set music manager to full 1.0f intensity to play all layers since the puzzle is complete
     }
 
     private void ResetActivatedList()
