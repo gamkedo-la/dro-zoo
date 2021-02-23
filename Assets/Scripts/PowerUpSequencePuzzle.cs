@@ -62,10 +62,12 @@ public class PowerUpSequencePuzzle : MonoBehaviour
                     break;
                 }
             }
-            
             // assuming we didn't break out above, we have now successfully activated the next piece of the puzzle
-            musicManager.intensity += musicIntensityGrowthAmount;
-
+            //to avoid raising the intensity after the puzzle is reset, check if the puzzle is a partial match before raising intensity
+            if(partialMatch){
+                musicManager.intensity += musicIntensityGrowthAmount;
+            }
+            
             if(activatedPowerUps.Count == powerUps.Count && partialMatch){
                 isMatch = true;
                 PuzzleCompleted();
@@ -75,7 +77,7 @@ public class PowerUpSequencePuzzle : MonoBehaviour
 
     private void PuzzleCompleted()
     {
-        puzzleListener.SetPuzzleCompleted(true);
+        if(puzzleListener){ puzzleListener.SetPuzzleCompleted(true); } //the puzzle listener is completely optional and can be used to trigger any effects or animations etc. upon completion of the puzzle
         musicManager.intensity = 1.0f; // set music manager to full 1.0f intensity to play all layers since the puzzle is complete
     }
 
