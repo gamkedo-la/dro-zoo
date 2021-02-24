@@ -17,7 +17,6 @@ public class PowerUpSequencePuzzle : MonoBehaviour
     
     [SerializeField] public MusicManager musicManager;
     [SerializeField] public float musicIntensityGrowthAmount = 0.2f;
-
     [SerializeField] PuzzleListener puzzleListener;
 
     
@@ -34,10 +33,15 @@ public class PowerUpSequencePuzzle : MonoBehaviour
 
     }
 
-    public void HandlePowerUpActivated(PowerUp powerUp)
+    public void HandlePowerUpActivated(PowerUp powerUp, bool isCorrect)
     {
         if(isMatch){return;} //if this puzzle is already completed, do nothing
-
+        if(!isCorrect){
+            //if the PowerUp calling this method was triggered incorrectly, reset the whole sequence
+            ResetPowerUps();
+            ResetActivatedList(); //clear list
+            return;
+        }
         bool isInList = false;
         //check whether powerup is in the list
 
