@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -11,6 +12,8 @@ public class MusicManager : MonoBehaviour
     private float _min_intensity = 0.0f;
 
     private float _current_playback_master_time;
+
+    [SerializeField] public float fadeRate;
 
     public float intensity
     {
@@ -29,23 +32,29 @@ public class MusicManager : MonoBehaviour
         }
     }
     
-    
-    // Start is called before the first frame update
     void Start()
     {
         _layers = new List<AudioSource>(GetComponentsInChildren<AudioSource>());
         
+        // on start, set all music layers to 0 volume so we can fade them in
+        foreach (AudioSource layer in _layers)
+        {
+            layer.volume = 0.0f;
+        }
         PlayAllLayers();
     }
 
     public void PlayAllLayers()
     {
         // TODO: add crossfade between this group of layers and another group of layers if this music manager has different tracks than the ones currently being played
+        
+        // if any layer is playing, get its player time to sync all the others
         foreach (AudioSource layer in _layers)
         {
             if (layer.isPlaying == true)
             {
                 _current_playback_master_time = layer.time;
+                break; // just need the timing from any of the current playing layers
             }
         }
     
@@ -59,25 +68,49 @@ public class MusicManager : MonoBehaviour
             {
                 if (layer.isPlaying == false)
                 {
-                    // TODO:  Fade IN volume instead of a hard 1.0f jump
-                    layer.volume = 1.0f;
+                    // TODO: put time set and loop bool set somewhere else?
                     layer.time = _current_playback_master_time;
-                    layer.loop = true;
-                    layer.Play();    
+                    
+                    StartCoroutine(fadeMusicLayer(layer, fadeRate, 1.0f));
                 } 
             }
             else
             {
                 if (layer.isPlaying == true)
                 {
-                    // TODO:  Fade OUT volume instead of a hard 0.0f jump
-                    layer.volume = 0.0f;
-                    layer.loop = false;
-                    layer.Stop();
+                    StartCoroutine(fadeMusicLayer(layer, fadeRate, 0.0f));
                 }
             }
         }
     }
-    
-    
+
+    // based on the time allowed, fade from 0 to 1 for the layer if fadeIn is true
+    private IEnumerator fadeMusicLayer(AudioSource layer, float fadeRate, float targetVolume)
+    {
+        // TODO: detect direction and DRY up this if and WHILE
+        
+        // we are quieter than the targetVolume, fade up
+        if (layer.volume < targetVolume)
+        {
+            layer.loop = true;
+            layer.Play();
+            while (layer.volume  < targetVolume)
+            {
+                layer.volume = Mathf.Clamp01(layer.volume + (fadeRate * Time.deltaTime));
+                yield return new WaitForEndOfFrame();
+            }
+        } 
+        // we are louder than targetVolume, fade down
+        else if (layer.volume > targetVolume)
+        {
+            while (layer.volume > targetVolume)
+            {
+                layer.volume = Mathf.Clamp01(layer.volume - (fadeRate * Time.deltaTime));
+                yield return new WaitForEndOfFrame();
+            }
+            layer.Stop();
+        }
+    }
+
+
 }

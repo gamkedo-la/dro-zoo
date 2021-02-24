@@ -1,18 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 public class MuteAudio : MonoBehaviour
 {
     public InputActionAsset playerControls;
     public AudioClip muteButtonAudio;
+    public AudioMixerGroup UIMixerGroup;
 
+    private AudioSource muteAudioSource;
+    
     private bool isMuted = false;
     private float waitForSFX = 0f;
     private float originalVolume;
     private InputAction mute;
 
+    private void Awake()
+    {
+        muteAudioSource = gameObject.AddComponent<AudioSource>();
+        muteAudioSource.outputAudioMixerGroup = UIMixerGroup;
+    }
     private void OnEnable() {
         if(playerControls){
         mute = playerControls.FindActionMap("PlayerControl").FindAction("PlayerAudio");
@@ -49,8 +58,8 @@ public class MuteAudio : MonoBehaviour
         if(!muteButtonAudio) {
             return;
         }
-
-        AudioSource.PlayClipAtPoint(muteButtonAudio, Camera.main.transform.position);
+        muteAudioSource.PlayOneShot(muteButtonAudio);
+        // AudioSource.PlayClipAtPoint(muteButtonAudio, Camera.main.transform.position);
     }
 
     private void ToggleMute()

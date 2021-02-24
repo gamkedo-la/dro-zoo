@@ -129,6 +129,17 @@
                 },
                 {
                     "name": "",
+                    "id": "403d17a9-43f6-405f-84ba-97d4ac01b251",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MobileInput;Keyboard",
+                    "action": "PlayerAudio",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "991d8d5b-6675-4256-9bd4-682951b3a015",
                     "path": "<Keyboard>/p",
                     "interactions": "",
