@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+public enum PowerUpRequiredDirection {leftToRight, rightToLeft}
+
 public class PowerUp : MonoBehaviour
 {
 
@@ -20,7 +23,10 @@ public class PowerUp : MonoBehaviour
     //[SerializeField] private float resetTime = 10f;
     [Tooltip("Will trigger collision start animations in Player")]
     [SerializeField] private bool showAnimationsForPlayer = true;
-
+    [Tooltip("Set required direction for moving through PowerUp")]
+    [SerializeField] bool isDirectionRequired;
+    [Tooltip("Required direction relative to camera")]
+    public PowerUpRequiredDirection powerUpRequiredDirection;
     [Header("Trigger Collider Settings:")]
     [SerializeField] Collider triggerCollider;
 
@@ -29,9 +35,10 @@ public class PowerUp : MonoBehaviour
 
     private GameObject player;
     private bool playerIsInTrigger = false;
-    private bool isEnterLeft = false;
-    private bool isExitLeft = false;
+    //public bool isEnterLeft = false;
+    //public bool isExitLeft = false;
     //private float enterTime = 0f;
+    private Vector2 exitDirection;
     private int timesUsed;
     public int timesPowerUpUsed {
         get {return timesUsed;}
@@ -64,12 +71,12 @@ public class PowerUp : MonoBehaviour
         //on entering trigger, set time when the player entered it, if the player has reached the maximum amount of uses
         playerIsInTrigger = true;
         isActivated = true;
-        isEnterLeft = CheckMovementDirection(other.gameObject);
         if(isTriggeredOverTime){
             StartCoroutine("PowerUpCycle");
         }
-        if(isPartOfSequence){
-            HandleSequencePuzzleActivation();
+        if(isPartOfSequence && !isDirectionRequired){
+            //the powerup is successfully activated when it is triggered
+            HandleSequencePuzzleActivation(true);
         }
         if(showAnimationsForPlayer){
             //if more control for showing an animation for the Player object is required, add conditions here
@@ -86,7 +93,7 @@ public class PowerUp : MonoBehaviour
         //on entering trigger, set time when the player entered it, if the player has reached the maximum amount of uses
         playerIsInTrigger = false;
         isActivated = false;
-        isExitLeft = CheckMovementDirection(other.gameObject);
+        exitDirection = CheckMovementDirection(other.gameObject);
         ResetPowerLevel();
         if(showAnimationsForPlayer){
             if(other.GetComponentInChildren<PlayerAnimationHandler>() != null){
@@ -94,6 +101,9 @@ public class PowerUp : MonoBehaviour
             } else {
                 Debug.LogWarning("PowerUp " + name + " tried to access the colliding objects animation handler, but did not find one");
             }
+        }
+        if(isDirectionRequired){
+            HandleMovementDirection();
         }
     }
 
@@ -113,17 +123,33 @@ public class PowerUp : MonoBehaviour
         powerLevel = 0;
     }
 
-    private bool CheckMovementDirection(GameObject obj)
+    private void HandleMovementDirection()
     {
-        // when called, check the direction to object in parameter. Boolean given tells if the object is triggered from the left on exit/enter
-        Vector3 direction = (obj.transform.position - this.transform.position).normalized;
-        bool isTriggeredFromLeft;
-        if(direction.x > 0){
-            isTriggeredFromLeft = false;
+        //if the movement direction matches to the set direction, consider this powerup activated and signal for successful activation
+        Vector2 dir = GetMovementDirection();
+        if(dir == Vector2.left && powerUpRequiredDirection.ToString() == "leftToRight"){
+            if(isPartOfSequence){
+                HandleSequencePuzzleActivation(true);
+            }
+        } else if (dir == Vector2.right && powerUpRequiredDirection.ToString() == "rightToLeft"){
+            if(isPartOfSequence){
+                HandleSequencePuzzleActivation(true);
+            }
         } else {
-            isTriggeredFromLeft = true;
+            HandleSequencePuzzleActivation(false);
         }
-        return isTriggeredFromLeft;
+    }
+
+
+    private Vector2 CheckMovementDirection(GameObject obj)
+    {
+        // when called, check the direction to object in parameter. Boolean given tells if the colliding object is to the left of object
+        Vector3 relativeDirection = this.transform.InverseTransformVector(obj.transform.position - this.transform.position);
+        if(relativeDirection.z > 0){
+            return Vector2.left;
+        } else {
+            return Vector2.right;
+        }
     }
 
     /// <summary>
@@ -132,13 +158,7 @@ public class PowerUp : MonoBehaviour
      /// </summary>
      /// <returns>Returns normalized Vector2 left/right.</returns>
     public Vector2 GetMovementDirection(){
-        Vector2 movementDirection = Vector2.zero;
-        if(isEnterLeft && !isExitLeft){ //left to right -> return right
-            movementDirection = Vector2.right;
-        } else if (!isEnterLeft && isExitLeft) { //right to left -> return left
-            movementDirection = Vector2.left;
-        }
-        return movementDirection;
+        return exitDirection;
     }
 
     /// <summary>
@@ -157,13 +177,13 @@ public class PowerUp : MonoBehaviour
         return isActivated;
     }
 
-    private void HandleSequencePuzzleActivation(){
+    private void HandleSequencePuzzleActivation(bool isCorrect){
         //used to inform the parent Puzzle handler that this trigger was successfully activated
         PowerUpSequencePuzzle puzzle = GetComponentInParent<PowerUpSequencePuzzle>();
         if(!puzzle || puzzle == null){
             Debug.LogWarning("PowerUp " + name + " was unable to locate power up puzzle sequence handler when activated");
         } else {
-            puzzle.HandlePowerUpActivated(gameObject.GetComponent<PowerUp>());
+            puzzle.HandlePowerUpActivated(gameObject.GetComponent<PowerUp>(), isCorrect);
         }       
     }
 }

@@ -51,8 +51,13 @@ MonoBehaviour:
   triggerTimerInSeconds: 1
   maxTimesUsed: 4
   showAnimationsForPlayer: 1
+  isDirectionRequired: 0
+  powerUpRequiredDirection: 0
   triggerCollider: {fileID: 3595664003394854766}
+  leftChildTrigger: {fileID: 0}
+  rightChildTrigger: {fileID: 0}
   objectToTrigger: {fileID: 0}
+  isExitLeft: 0
 --- !u!65 &3595664003394854766
 BoxCollider:
   m_ObjectHideFlags: 0
