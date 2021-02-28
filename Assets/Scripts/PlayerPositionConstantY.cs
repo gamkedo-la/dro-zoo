@@ -13,7 +13,7 @@ public class PlayerPositionConstantY : MonoBehaviour
     void Update()
     {
         Vector3 targetPosition = follow.position;
-        transform.position = new Vector3(follow.position.x  ,cameraheight, follow.position.z );
-        
+        //transform.position = new Vector3(follow.position.x  ,cameraheight, follow.position.z );
+        transform.position = new Vector3(follow.position.x  ,follow.position.y + cameraheight , follow.position.z );
       }
 }
