@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUps:
   - {fileID: 259107457346560955}
+  musicManager: {fileID: 0}
+  musicIntensityGrowthAmount: 0.2
   puzzleListener: {fileID: 0}
 --- !u!1001 &3638580296167308500
 PrefabInstance:
@@ -118,7 +120,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: 600a38fb8ac9387488c286da7c68fcac, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e1e98f3e075e0848adbcb16ec928ba1, type: 3}
 --- !u!4 &259107457346560956 stripped

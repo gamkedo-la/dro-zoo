@@ -54,10 +54,7 @@ MonoBehaviour:
   isDirectionRequired: 0
   powerUpRequiredDirection: 0
   triggerCollider: {fileID: 3595664003394854766}
-  leftChildTrigger: {fileID: 0}
-  rightChildTrigger: {fileID: 0}
   objectToTrigger: {fileID: 0}
-  isExitLeft: 0
 --- !u!65 &3595664003394854766
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -221,7 +218,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: 600a38fb8ac9387488c286da7c68fcac, type: 2}
     - target: {fileID: 6881055068728814390, guid: dbda508ce0be71444a3085d2086c87f1,
         type: 3}
       propertyPath: m_StaticEditorFlags
