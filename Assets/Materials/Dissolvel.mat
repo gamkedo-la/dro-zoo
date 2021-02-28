@@ -69,7 +69,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
-    - _Cutoff: 0.52
+    - _Cutoff: 0.77
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
@@ -78,10 +78,10 @@ Material:
     - _Length: 18.6
     - _Metallic: 0
     - _Mode: 0
-    - _Noisescale: 2.55
+    - _Noisescale: 9.26
     - _OcclusionStrength: 1
-    - _Offset: -11.76
-    - _Opacitycutoff: -0
+    - _Offset: -7.81
+    - _Opacitycutoff: 2.17
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -94,3 +94,4 @@ Material:
     - _Color1: {r: 0.62264144, g: 0.48753995, b: 0.5055087, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Vector0: {r: 1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
