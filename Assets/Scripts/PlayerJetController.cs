@@ -30,7 +30,7 @@ public class PlayerJetController : MonoBehaviour
     public ParticleSystem leftThrusterParticleSystem;
     public ParticleSystem rightThrusterParticleSystem;
 
-
+    [SerializeField] private MovementController moveController; 
     
     private InputAction movement;
     private InputAction height;
@@ -139,6 +139,11 @@ public class PlayerJetController : MonoBehaviour
         ScaleThruster(rightThrusterParticleSystem, HandleSideThrustModifier(), sideThrusterParticleStartSize);
         
         RotateSideThrusters();
+
+        if(isMovementInput) // Inheritence from Movement Controller // ZacB 
+        {
+            moveController.OnSmoothMovemnt(); 
+        }
     }
 
     private void PositionMainThruster(Vector3 currentPos)
