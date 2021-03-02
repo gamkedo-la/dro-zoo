@@ -683,7 +683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constraint: {fileID: 248616856}
-  weight: 1
+  weight: 2
   target: {fileID: 2046480374}
   source: {fileID: 655531255}
 --- !u!1001 &282505319
@@ -2919,7 +2919,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &852026677
 GameObject:
@@ -4465,7 +4465,7 @@ Transform:
   m_Children:
   - {fileID: 16988273}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1179185500
 GameObject:
@@ -5162,7 +5162,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1382635510
 PrefabInstance:
@@ -8637,7 +8637,7 @@ PrefabInstance:
     - target: {fileID: 6361387634515980967, guid: 845325def1b8a1d4b84c44402cac1630,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6361387634515980967, guid: 845325def1b8a1d4b84c44402cac1630,
         type: 3}
