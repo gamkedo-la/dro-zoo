@@ -46,39 +46,4 @@ public class MovementController : MonoBehaviour
         rotate = new Vector3 ( 0f, inputValue.x, 0f) * spin ;
         dronerb.AddTorque( rotate ,ForceMode.Force);
     } 
-
-    /* Test Smooth Movement */ // ZacB 
-
-    public virtual void OnSmoothMovemnt()
-    {
-        Vector3 pos = transform.position;
-        Vector3 lastPos = Vector3.zero; 
-        if(dronerb.velocity.magnitude > 0)
-        {
-            lastPos = new Vector3(0, transform.position.y, 0) * speed * Time.deltaTime;  
-            transform.position = Vector3.Lerp(pos, lastPos, 0.1f * speed * Time.deltaTime);
-            return; 
-        }
-        else if (dronerb.velocity.magnitude < 0)
-        {
-            lastPos = new Vector3(0, -transform.position.y, 0) * speed * Time.deltaTime;
-            transform.position = Vector3.Lerp(lastPos, pos, 0.1f * speed * Time.deltaTime);
-            return;
-        }
-
-        if (dronerb.velocity.magnitude > -1)
-        {
-            lastPos = new Vector3(transform.position.x, 0, 0) * speed * Time.deltaTime;
-            transform.position = Vector3.Lerp(pos, lastPos, 0.1f * speed * Time.deltaTime);
-            return;
-        }
-        else if (dronerb.velocity.magnitude > 1)
-        {
-            lastPos = new Vector3(-transform.position.x, 0, 0) * speed * Time.deltaTime;
-            transform.position = Vector3.Lerp(lastPos, pos, 0.1f * speed * Time.deltaTime);
-            return;
-        }
-    }
-
-    /* End Test Movement */ 
 }
