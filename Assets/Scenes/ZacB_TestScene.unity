@@ -506,6 +506,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2950708895708192963, guid: 7fafa0f281e9eaf40af47de64c9693d5,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: 3d057d10-e242-42e0-8d0c-68d344b77def
+      objectReference: {fileID: 0}
     - target: {fileID: 3420975837898564160, guid: 7fafa0f281e9eaf40af47de64c9693d5,
         type: 3}
       propertyPath: m_RootOrder
@@ -595,9 +600,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   droneRB: {fileID: 1055813378}
+  droneSpeed: 15
+  droneSpin: 5
   droneControls: {fileID: -944628639613478452, guid: 90fcccec4308c4a44a0b95061cff6906,
     type: 3}
-  droneSpeed: 15
+  inputAction:
+    m_Name: Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d4038731-1df4-456f-8bdd-65aa3f3a70e3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
 --- !u!114 &1055813381
 MonoBehaviour:
   m_ObjectHideFlags: 0

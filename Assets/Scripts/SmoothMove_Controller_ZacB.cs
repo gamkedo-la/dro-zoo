@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System; 
 
 public class SmoothMove_Controller_ZacB : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class SmoothMove_Controller_ZacB : MonoBehaviour
         if (isMovementInput) // Inheritence from Movement Controller // ZacB 
         {
             moveController.OnSmoothMovemnt();
+            moveController.OnSmoothMove();
+            moveController.OnPlayerSmoothMove();
+            moveController.OnPlayerHeightSmooth(); 
         }
     }
 }
