@@ -508,8 +508,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2950708895708192963, guid: 7fafa0f281e9eaf40af47de64c9693d5,
         type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 90fcccec4308c4a44a0b95061cff6906,
+        type: 3}
+    - target: {fileID: 2950708895708192963, guid: 7fafa0f281e9eaf40af47de64c9693d5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2950708895708192963, guid: 7fafa0f281e9eaf40af47de64c9693d5,
+        type: 3}
       propertyPath: m_DefaultActionMap
-      value: 3d057d10-e242-42e0-8d0c-68d344b77def
+      value: 4c60243f-4a87-4aa7-9408-442f02bb2bc3
       objectReference: {fileID: 0}
     - target: {fileID: 3420975837898564160, guid: 7fafa0f281e9eaf40af47de64c9693d5,
         type: 3}
@@ -594,7 +605,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055813377}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34c9a4e6025b36341b5d6a2afddf9038, type: 3}
   m_Name: 
@@ -626,6 +637,78 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveController: {fileID: 1055813380}
   isMovementInput: 0
+--- !u!114 &1055813387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055813377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07af1a5f76919ae46a1fbbbd95ba09ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droneSpeed: 15
+  droneSpin: 35
+  droneControls: {fileID: -944628639613478452, guid: 90fcccec4308c4a44a0b95061cff6906,
+    type: 3}
+  controls: {fileID: -944628639613478452, guid: 9600a4edf444e704dba9b474b6fde9d2,
+    type: 3}
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1b0dba91-3669-4f2d-a793-384a42f9b38f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: WASD
+      m_Id: f71dea0f-bdc5-4eb1-84e6-e2ee0503530d
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 4
+    - m_Name: up
+      m_Id: eae3efd9-c6f3-4781-a4ce-1e48cf18cbcc
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 99270484-9940-462a-beb2-dc4bb7ade65d
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 81bdb04b-2238-4ce1-9269-b0a81640b353
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 9c4433c3-2ef3-4a26-a321-579b873051a0
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+  gamePlayAction:
+    m_Name: Game Play Action
+    m_Id: d1cc2ba5-2e99-4d36-8c3a-fa2bbcd42006
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
 --- !u!1 &1823194210
 GameObject:
   m_ObjectHideFlags: 0
