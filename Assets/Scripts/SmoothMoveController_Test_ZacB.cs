@@ -54,11 +54,12 @@ public class SmoothMoveController_Test_ZacB : MonoBehaviour
     {
         Debug.Log(moveAction.ReadValue<Vector2>()); // Test move action value inbput 
         Vector2 inputVector = moveAction.ReadValue<Vector2>();
-        Vector3 lastPos = new Vector3();
+        Vector3 lastPos = new Vector3(); // get last pos of drone by input vector value 
+
         lastPos.x = inputVector.x;
         lastPos.z = inputVector.y; 
 
-        droneRB.AddForce(lastPos * Time.deltaTime * droneSpeed); // forward motion 
+        droneRB.AddForce(lastPos * Time.deltaTime * droneSpeed); // get forward motion by input value 
 
         Vector2 upVector = moveAction.ReadValue<Vector2>(); 
         if(inputVector.y > 0) 
@@ -70,7 +71,16 @@ public class SmoothMoveController_Test_ZacB : MonoBehaviour
             droneRB.AddForce(inputVector * Time.deltaTime * droneSpeed * 2); // down motion 
         }
 
-        if(inputVector.x > 0) // spin motion right 
+        if(inputVector.y >= 1)
+        {
+            droneRB.AddForce(Vector3.forward * Time.deltaTime * droneSpeed * 2); // set forward motion 
+        }
+        else if (inputVector.y <= -0.1f)
+        {
+            droneRB.AddForce(Vector3.back * Time.deltaTime * droneSpeed * 2); // backward motion 
+        }
+
+        if (inputVector.x > 0) // spin motion right 
         {
             droneRB.AddTorque(inputVector * Time.deltaTime * droneSpin); 
         }
