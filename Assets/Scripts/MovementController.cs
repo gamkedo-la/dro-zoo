@@ -9,21 +9,22 @@ public class MovementController : MonoBehaviour
     public float spin;
     public Transform modelspin;
 
+    Vector3 forceNow = Vector3.zero;
+    Vector3 spinNow = Vector3.zero;
+
+    private void FixedUpdate() {
+        dronerb.AddForce(forceNow, ForceMode.Force);
+        dronerb.AddTorque(spinNow, ForceMode.Force);
+    }
+
     private void OnPlayerMovement(InputValue value)
     {
         var position = gameObject.transform.position;
         Vector2 inputValue = value.Get<Vector2>();
 
-        /* gameObject.transform.position = new Vector3(
-            position.x + (inputValue.x/10),
-            position.y,
-            position.z + (inputValue.y/10)
-
-        ); */
-
-        Vector3 apply = Vector3.zero;
-        apply = new Vector3 ( inputValue.x, 0f, inputValue.y) * speed ;
-        dronerb.AddForce( apply ,ForceMode.Force);
+        forceNow = new Vector3 ( inputValue.x * speed,
+                        forceNow.y, // preserve as it decays
+                        inputValue.y * speed) ;
     } 
 
     private void OnPlayerHeight(InputValue value)
@@ -31,19 +32,9 @@ public class MovementController : MonoBehaviour
         var position = gameObject.transform.position;
         Vector2 inputValue = value.Get<Vector2>();
 
-        /* gameObject.transform.position = new Vector3(
-            position.x,
-            position.y + (inputValue.y/10),
-            position.z
-
-        ); */
-
-        Vector3 apply = Vector3.zero;
-        apply = new Vector3 ( 0f, inputValue.y, 0f) * speed ;
-        dronerb.AddForce( apply ,ForceMode.Force);
-
-        Vector3 rotate = Vector3.zero;
-        rotate = new Vector3 ( 0f, inputValue.x, 0f) * spin ;
-        dronerb.AddTorque( rotate ,ForceMode.Force);
+        forceNow = new Vector3 ( forceNow.x,
+                                inputValue.y * speed, // only changing vertical
+                                forceNow.z) ;
+        spinNow = new Vector3 ( 0f, inputValue.x, 0f) * spin ;
     } 
 }

@@ -23,7 +23,7 @@ public class ikboneweight : MonoBehaviour
     void Update()
     {
         float dist = Vector3.Distance(target.position, source.position);
-        print("Distance to target: " + dist);
+        // print("Distance to target: " + dist);
         if (dist > 1.4) {
             constraint.data.targetPositionWeight = 0f;
         }  else{

@@ -100,7 +100,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "MobileInput",
+                    "groups": "MobileInput;Devices",
                     "action": "PlayerMovement",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -111,7 +111,7 @@
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "MobileInput",
+                    "groups": "MobileInput;Devices",
                     "action": "PlayerHeight",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -148,6 +148,61 @@
                     "action": "PauseGame",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "arrows",
+                    "id": "7540c74d-128d-47bc-9138-cae5354bebae",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerHeight",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "0176bc1b-6ad5-4511-a2fa-2c8cca9e0d25",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "PlayerHeight",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "ffd60340-7fe3-40b0-8f9d-81fa44bb8173",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "PlayerHeight",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "f55b0246-dfbd-4372-a6f9-49de49d6036f",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "PlayerHeight",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "1b12d7ae-0afd-4a1c-a748-2245b19ff146",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "PlayerHeight",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },

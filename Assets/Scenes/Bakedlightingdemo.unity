@@ -2174,7 +2174,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: PlayerControl
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -5416,7 +5416,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 42dd9baa018b9724e9d872f9b8482e62,
         type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 42dd9baa018b9724e9d872f9b8482e62,
         type: 3}
@@ -5996,7 +5996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1568282917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7831,7 +7831,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 15c52c637cfb83649a8bdb84071f8f9d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 15c52c637cfb83649a8bdb84071f8f9d,
         type: 3}
