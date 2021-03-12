@@ -502,6 +502,11 @@ PrefabInstance:
       propertyPath: moveController
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1423195430023699419, guid: 7fafa0f281e9eaf40af47de64c9693d5,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2608270051225319674, guid: 7fafa0f281e9eaf40af47de64c9693d5,
         type: 3}
       propertyPath: m_Name
@@ -578,6 +583,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4324603143074126301, guid: 7fafa0f281e9eaf40af47de64c9693d5,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910258703684371540, guid: 7fafa0f281e9eaf40af47de64c9693d5,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2950708895708192965, guid: 7fafa0f281e9eaf40af47de64c9693d5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7fafa0f281e9eaf40af47de64c9693d5, type: 3}
@@ -638,6 +653,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveController: {fileID: 1055813380}
   isMovementInput: 0
+--- !u!114 &1055813382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055813377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb20e2d5dd426124d8aa2d4e61919777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions: {fileID: -944628639613478452, guid: 90fcccec4308c4a44a0b95061cff6906, type: 3}
 --- !u!114 &1055813387
 MonoBehaviour:
   m_ObjectHideFlags: 0
