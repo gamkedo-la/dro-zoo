@@ -27,6 +27,18 @@ public class Settings_MenuManager_ZacB : MonoBehaviour
     #endregion End Resolution Settings 
 
     #region Quality Settings 
+
+    private void Start()
+    {
+        GetQualSettings(5); 
+        Debug.Log("Default Quality Setting"); 
+    }
+
+    public void GetQualSettings(int value)
+    {
+        value = QualitySettings.GetQualityLevel();
+    }
+
     public void SetVeryLowQual()
     {
         QualitySettings.SetQualityLevel(0);
