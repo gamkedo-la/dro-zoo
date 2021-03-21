@@ -1,93 +1,67 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.Rendering; 
 using TMPro; 
 using UnityEngine;
 
 public class Settings_MenuManager_ZacB : MonoBehaviour
 {
-    public TMP_Dropdown resolutionDropdown;
-    public TMP_Dropdown qualityDropdown;
-    public TMP_Dropdown textureDropdown;
-    public TMP_Dropdown aADropdown; 
-
-    Resolution[] resolutions;
-
-    private void Start()
-    {
-        resolutionDropdown.ClearOptions();
-        List<string> options = new List<string>();
-        resolutions = Screen.resolutions;
-        int currentResIndex = 0; 
-
-        for(int i = 0; i < resolutions.Length; i++)
-        {
-            string option = resolutions[i].width + "x" + resolutions[i].height;
-            options.Add(option); 
-            if(resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
-            {
-                currentResIndex = i; 
-            }
-        }
-    }
-
+    #region Resolution Settings
     public void SetFullScreen(bool isfullScreen)
     {
         Screen.fullScreen = isfullScreen;
     }
 
-    public void SetResolution(int resIndex)
+    public void SetWindowedScreen(bool isWindowed)
     {
-        Resolution res = resolutions[resIndex];
-        Screen.SetResolution(res.width, res.height, Screen.fullScreen); 
+        isWindowed = !isWindowed; 
+        Screen.fullScreenMode = FullScreenMode.Windowed;
     }
 
-    public void SetTexture(int texIndex)
+    public void SetResolutionFull()
     {
-        QualitySettings.masterTextureLimit = texIndex;
-        qualityDropdown.value = 6; 
+        Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
     }
 
-    public void SetAA(int aAIndex)
+    #endregion End Resolution Settings 
+
+    #region Quality Settings 
+    public void SetVeryLowQual()
     {
-        QualitySettings.antiAliasing = aAIndex;
-        qualityDropdown.value = 6; 
+        QualitySettings.SetQualityLevel(0);
+        Debug.Log("Very Low Quality Selected"); 
     }
 
-    public void SetQualitySettings(int qIndex)
+    public void SetLowQual()
     {
-        if(qIndex != 6)
-        {
-            QualitySettings.SetQualityLevel(qIndex); 
-            switch(qIndex)
-            {
-                case 0: // very low quality 
-                    textureDropdown.value = 3; 
-                    aADropdown.value = 0;
-                    break;
-                case 1: // low quality 
-                    textureDropdown.value = 2;
-                    aADropdown.value = 0;
-                    break;
-                case 2: // medium quality 
-                    textureDropdown.value = 1;
-                    aADropdown.value = 0;
-                    break;
-                case 3: // high quality 
-                    textureDropdown.value = 0;
-                    aADropdown.value = 0;
-                    break;
-                case 4: // very high quality 
-                    textureDropdown.value = 0;
-                    aADropdown.value = 1;
-                    break;
-                case 5: // ultra quality 
-                    textureDropdown.value = 0;
-                    aADropdown.value = 2;
-                    break;
-            }
-
-            qualityDropdown.value = qIndex; 
-        }
+        QualitySettings.SetQualityLevel(1);
+        Debug.Log("Low Quality Selected");
     }
+
+    public void SetMediumQual()
+    {
+        QualitySettings.SetQualityLevel(2);
+        Debug.Log("Medium Quality Selected");
+    }
+
+    public void SetHighQual()
+    {
+        QualitySettings.SetQualityLevel(3);
+        Debug.Log("High Quality Selected");
+    }
+
+    public void SetVeryHighQual()
+    {
+        QualitySettings.SetQualityLevel(4);
+        Debug.Log("Very High Quality Selected");
+    }
+
+    public void SetUltraQual()
+    {
+        QualitySettings.SetQualityLevel(5);
+        Debug.Log("Ultra Quality Selected");
+    }
+
+    #endregion End Quality Settings 
 }
