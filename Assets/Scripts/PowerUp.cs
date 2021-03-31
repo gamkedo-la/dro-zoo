@@ -33,6 +33,8 @@ public class PowerUp : MonoBehaviour
     [Header("Object Controlled By Trigger")]
     [SerializeField] GameObject objectToTrigger;
 
+    [SerializeField] private AutomaticDoor door; // added reference by zac 
+
     private GameObject player;
     private bool playerIsInTrigger = false;
     //public bool isEnterLeft = false;
@@ -87,6 +89,15 @@ public class PowerUp : MonoBehaviour
             }
             
         }
+
+        // begin zac code 
+        if(isActivated.Equals(true) && door.open.Equals(false))
+        {
+            door.isPoweredUp = true; // this sets powered up bool to true, then Automatic Door checks if it's true
+            door.open.Equals(true); 
+            return; 
+        }
+        // end zac code 
     }
 
     private void OnTriggerExit(Collider other) {
@@ -110,6 +121,19 @@ public class PowerUp : MonoBehaviour
     private void OnTriggerStay(Collider other) {
         playerIsInTrigger = true;
     }
+
+    private void NullCheck() // zac code 
+    {
+        if(door == null || door.powerUp == null)
+        {
+            return; 
+        }
+    }
+
+    private void Update()
+    {
+        NullCheck(); 
+    } // end zac code 
 
     IEnumerator PowerUpCycle()
     {

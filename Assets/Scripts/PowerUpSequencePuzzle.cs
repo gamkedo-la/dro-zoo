@@ -69,7 +69,11 @@ public class PowerUpSequencePuzzle : MonoBehaviour
             // assuming we didn't break out above, we have now successfully activated the next piece of the puzzle
             //to avoid raising the intensity after the puzzle is reset, check if the puzzle is a partial match before raising intensity
             if(partialMatch){
-                musicManager.intensity += musicIntensityGrowthAmount;
+                if(musicManager != null) // modified by zac 
+                {
+                    musicManager.intensity += musicIntensityGrowthAmount;
+                    return; // end modified by zac 
+                } 
             }
             
             if(activatedPowerUps.Count == powerUps.Count && partialMatch){
