@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement; 
 using UnityEngine;
 
 public class LoadMenus_Manager_ZacB : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool isPressedStartGame;
+    [SerializeField] public MainMenu_InteractiveControls_ZacB mM; 
 
-    // Update is called once per frame
-    void Update()
+    public void OnClickStartGame()
     {
-        
+        isPressedStartGame = true; 
+        if(isPressedStartGame == true && mM.startGame == true || isPressedStartGame == true)
+        {
+            SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
+            return; 
+        }
     }
 }
