@@ -170,10 +170,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 4.73, y: 4.58, z: -7.4}
-  m_XDamping: 6.3
-  m_YDamping: 6.3
-  m_ZDamping: 6.5
+  m_FollowOffset: {x: 2.44, y: 0.26, z: -7.47}
+  m_XDamping: 1.63
+  m_YDamping: 1.89
+  m_ZDamping: 1.74
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_ScreenY: 0.5
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
-  m_SoftZoneWidth: 0.8
+  m_SoftZoneWidth: 0.77
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
   m_BiasY: 0
@@ -7981,7 +7981,7 @@ PrefabInstance:
     - target: {fileID: 3595664003394854767, guid: 7e1e98f3e075e0848adbcb16ec928ba1,
         type: 3}
       propertyPath: powerUpRequiredDirection
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8016062271339290702, guid: 7e1e98f3e075e0848adbcb16ec928ba1,
         type: 3}
@@ -8253,7 +8253,7 @@ PrefabInstance:
         type: 3}
       propertyPath: objectToTrigger
       value: 
-      objectReference: {fileID: 860246451}
+      objectReference: {fileID: 0}
     - target: {fileID: 3595664003394854767, guid: 7e1e98f3e075e0848adbcb16ec928ba1,
         type: 3}
       propertyPath: isDirectionRequired
@@ -9499,12 +9499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9347becffcf1fd74b93de51d6c546845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &860246451 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7442690533475955154, guid: 669848700040f5b4ea35d2700d160195,
-    type: 3}
-  m_PrefabInstance: {fileID: 1112517704}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &862168308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11366,7 +11360,7 @@ PrefabInstance:
     - target: {fileID: 3595664003394854767, guid: 7e1e98f3e075e0848adbcb16ec928ba1,
         type: 3}
       propertyPath: powerUpRequiredDirection
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8016062271339290702, guid: 7e1e98f3e075e0848adbcb16ec928ba1,
         type: 3}
@@ -12406,7 +12400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173001052}
   m_LocalRotation: {x: 0.26143992, y: -0.27825907, z: 0.07900024, w: 0.9208584}
-  m_LocalPosition: {x: -5.1743054, y: 8.276, z: -8.274}
+  m_LocalPosition: {x: -7.4643054, y: 3.956, z: -8.344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 16988273}
@@ -18776,7 +18770,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645747183}
   m_LocalRotation: {x: 0.26143992, y: -0.27825907, z: 0.07900024, w: 0.9208584}
-  m_LocalPosition: {x: -5.1743054, y: 8.276, z: -8.274}
+  m_LocalPosition: {x: -7.4643054, y: 3.956, z: -8.344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18863,7 +18857,7 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
-    m_Style: 1
+    m_Style: 5
     m_Time: 2
     m_CustomCurve:
       serializedVersion: 2
