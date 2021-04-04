@@ -9,21 +9,45 @@ using UnityEngine.SceneManagement;
 public class MainMenu_InteractiveControls_ZacB : MonoBehaviour
 {
    [SerializeField] public Button startButton;
-    public bool startGame; 
+    public bool startGame;
+    [SerializeField] public InputAction inputAction;
+    [SerializeField] public PlayerInput playerInput;
+    [SerializeField] public InputActionMap playerActions; 
+    [SerializeField] public LoadMenus_Manager_ZacB lmM;
+
+    private void Start()
+    {
+        startGame = false; 
+        inputAction = new InputAction(type: InputActionType.Button);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        startGame = true; 
         if(other.gameObject.CompareTag("Player"))
         {
+            startGame = true;
             ChangeColor();
             return; 
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            // Debug.Log("Player Staying in Trigger");
+
+            if(startGame == true)
+            {
+                SendMessage("OnSubmit", SendMessageOptions.DontRequireReceiver);
+                return; 
+            }
+        }
+    }
+
     private void ChangeColor()
     {
-        Debug.Log("Changed Color of Start Button");
+       // Debug.Log("Changed Color of Start Button");
         startButton.image.color = new Color(0.06968674f, 0.8207547f, 0.1056913f, 1f); 
     }
 
@@ -38,6 +62,9 @@ public class MainMenu_InteractiveControls_ZacB : MonoBehaviour
 
     private void Update()
     {
-       // set Input params 
+        if(playerInput == null)
+        {
+            return; 
+        }
     }
 }

@@ -49,6 +49,14 @@ public class @PlayerControlNew : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Submit"",
+                    ""type"": ""Button"",
+                    ""id"": ""08c5734b-79cf-43ca-ae92-87fbe095815d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
                 }
             ],
             ""bindings"": [
@@ -216,6 +224,17 @@ public class @PlayerControlNew : IInputActionCollection, IDisposable
                     ""action"": ""PlayerHeight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1d24052-0613-4804-9eca-8a5b5ec86907"",
+                    ""path"": ""*/{Submit}"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard;MobileInput;Devices"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -434,6 +453,7 @@ public class @PlayerControlNew : IInputActionCollection, IDisposable
         m_PlayerControl_PlayerHeight = m_PlayerControl.FindAction("PlayerHeight", throwIfNotFound: true);
         m_PlayerControl_PlayerAudio = m_PlayerControl.FindAction("PlayerAudio", throwIfNotFound: true);
         m_PlayerControl_PauseGame = m_PlayerControl.FindAction("PauseGame", throwIfNotFound: true);
+        m_PlayerControl_Submit = m_PlayerControl.FindAction("Submit", throwIfNotFound: true);
         // TestPlayer
         m_TestPlayer = asset.FindActionMap("TestPlayer", throwIfNotFound: true);
         m_TestPlayer_Move = m_TestPlayer.FindAction("Move", throwIfNotFound: true);
@@ -491,6 +511,7 @@ public class @PlayerControlNew : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControl_PlayerHeight;
     private readonly InputAction m_PlayerControl_PlayerAudio;
     private readonly InputAction m_PlayerControl_PauseGame;
+    private readonly InputAction m_PlayerControl_Submit;
     public struct PlayerControlActions
     {
         private @PlayerControlNew m_Wrapper;
@@ -499,6 +520,7 @@ public class @PlayerControlNew : IInputActionCollection, IDisposable
         public InputAction @PlayerHeight => m_Wrapper.m_PlayerControl_PlayerHeight;
         public InputAction @PlayerAudio => m_Wrapper.m_PlayerControl_PlayerAudio;
         public InputAction @PauseGame => m_Wrapper.m_PlayerControl_PauseGame;
+        public InputAction @Submit => m_Wrapper.m_PlayerControl_Submit;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -520,6 +542,9 @@ public class @PlayerControlNew : IInputActionCollection, IDisposable
                 @PauseGame.started -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnPauseGame;
                 @PauseGame.performed -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnPauseGame;
                 @PauseGame.canceled -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnPauseGame;
+                @Submit.started -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnSubmit;
+                @Submit.performed -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnSubmit;
+                @Submit.canceled -= m_Wrapper.m_PlayerControlActionsCallbackInterface.OnSubmit;
             }
             m_Wrapper.m_PlayerControlActionsCallbackInterface = instance;
             if (instance != null)
@@ -536,6 +561,9 @@ public class @PlayerControlNew : IInputActionCollection, IDisposable
                 @PauseGame.started += instance.OnPauseGame;
                 @PauseGame.performed += instance.OnPauseGame;
                 @PauseGame.canceled += instance.OnPauseGame;
+                @Submit.started += instance.OnSubmit;
+                @Submit.performed += instance.OnSubmit;
+                @Submit.canceled += instance.OnSubmit;
             }
         }
     }
@@ -614,6 +642,7 @@ public class @PlayerControlNew : IInputActionCollection, IDisposable
         void OnPlayerHeight(InputAction.CallbackContext context);
         void OnPlayerAudio(InputAction.CallbackContext context);
         void OnPauseGame(InputAction.CallbackContext context);
+        void OnSubmit(InputAction.CallbackContext context);
     }
     public interface ITestPlayerActions
     {
