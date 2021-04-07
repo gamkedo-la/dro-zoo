@@ -15,10 +15,19 @@ public class AutomaticDoor : MonoBehaviour
     [SerializeField] public PowerUp powerUp; // changed from private to public class reference 
     public bool isPoweredUp; // added by zac 
     // Start is called before the first frame update
+    [SerializeField] public GameObject powerDoorText; // added by zac 
     void Start()
     {
         originalRightDoorPosition = rightDoor.transform.position;
         originalLeftDoorPosition = leftDoor.transform.position;
+        if(powerDoorText == null)
+        {
+            return; 
+        }
+        else
+        {
+            powerDoorText.gameObject.SetActive(false); 
+        }
     }
 
     // zac code 
@@ -72,6 +81,15 @@ public class AutomaticDoor : MonoBehaviour
                 return;
             }
         }
+
+        if(!open) 
+        {
+            powerDoorText.gameObject.SetActive(true);
+        }
+        else
+        {
+            powerDoorText.gameObject.SetActive(false);
+        } 
     }
     // end modified by zac 
     
@@ -79,5 +97,17 @@ public class AutomaticDoor : MonoBehaviour
     {
         Debug.Log("You left the collider");
         open = false;
+
+        if (!open) // added by zac
+        {
+            powerDoorText.gameObject.SetActive(false);
+        }
+        else
+        {
+            if(open)
+            {
+                powerDoorText.gameObject.SetActive(true);
+            }
+        } // end added by zac 
     }
 }
