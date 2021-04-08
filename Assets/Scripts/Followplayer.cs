@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,15 +11,29 @@ public class Followplayer : MonoBehaviour
     private float yoffset;
     private bool connected;
 
-    void Update()
+    private MusicManager _musicManager;
+
+    private void Awake()
     {
-            if (connected){
-         transform.position = new Vector3(player.position.x  ,player.position.y + yoffset , player.position.z );
-            }
+        _musicManager = (MusicManager)FindObjectOfType(typeof(MusicManager));
     }
 
-     private void OnTriggerEnter(Collider other)
+    void Update()
     {
+         if (connected){ 
+             transform.position = new Vector3(player.position.x  ,player.position.y + yoffset , player.position.z );
+         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // if we found the _musicManager on awake, and this is the first time we are coming to this trigger,
+        // tell the music manager that a good thing just happened + 0.01f
+        if (_musicManager && !connected)
+        {
+            _musicManager.intensity += 0.01f;
+            // Debug.Log($"music intensity is now {_musicManager.intensity}");
+        }
         connected = true;
     }
 

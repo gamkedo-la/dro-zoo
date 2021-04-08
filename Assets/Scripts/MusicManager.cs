@@ -14,6 +14,7 @@ public class MusicManager : MonoBehaviour
     private float _current_playback_master_time;
 
     [SerializeField] public float fadeRate;
+    [SerializeField] public float startIntensity;  // to support 0 or more layers already playing at start
 
     public float intensity
     {
@@ -35,6 +36,12 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         _layers = new List<AudioSource>(GetComponentsInChildren<AudioSource>());
+        if (startIntensity < _min_intensity)
+        {
+            startIntensity = _min_intensity;
+        }
+
+        _intensity = startIntensity;
         
         // on start, set all music layers to 0 volume so we can fade them in
         foreach (AudioSource layer in _layers)
@@ -44,6 +51,7 @@ public class MusicManager : MonoBehaviour
         PlayAllLayers();
     }
 
+    // Play all the layers, but only 
     public void PlayAllLayers()
     {
         // TODO: add crossfade between this group of layers and another group of layers if this music manager has different tracks than the ones currently being played
@@ -60,9 +68,16 @@ public class MusicManager : MonoBehaviour
     
         foreach (AudioSource layer in _layers)
         {
-            string _pattern = @"\-(?<intensity>\d+\.\d+)$";
-            var _layer_intensity_split = Regex.Match(layer.clip.name, _pattern);
             
+            string _pattern = @"\-(?<intensity>\d+\.\d+)$";  // Matches:  "any string-name-you want-0.1.wav" 
+            string _pattern2 = @"^(?<intensity>\d+\.\d+)_"; // matches: "0.10_any name-you_want_to-call-version2.wav"
+            
+            Match _layer_intensity_split = Regex.Match(layer.clip.name, _pattern);
+            if (! Regex.IsMatch(layer.clip.name, _pattern))
+            {
+                _layer_intensity_split = Regex.Match(layer.clip.name, _pattern2);
+            }
+
             float _my_layer_float = float.Parse(_layer_intensity_split.Groups["intensity"].Value); 
             if (_my_layer_float <= _intensity)
             {
@@ -112,5 +127,18 @@ public class MusicManager : MonoBehaviour
         }
     }
 
+    // over the next timeToFade seconds, fade out everything back to minimum intensity
+    public void FadeToStartIntensityAfterTime(float timeUntilFade)
+    {
+        // Debug.Log($"will fade audio in {timeUntilFade} seconds");
+        StartCoroutine(_FadeToMinOverTimeCoRoutine(timeUntilFade));
+    }
+    private IEnumerator _FadeToMinOverTimeCoRoutine(float timeUntilFade)
+    {
+        // wait timeToFade, then set the _intensity back to startIntensity
+        yield return new WaitForSeconds(timeUntilFade);
+        // Debug.Log($"Set audio back to {startIntensity}");
+        intensity = startIntensity;  // NOTE: this re-runs the PlayAllLayers at each set if we use the public setter 
+    }
 
 }
