@@ -71,11 +71,28 @@ public class MusicManager : MonoBehaviour
             
             string _pattern = @"\-(?<intensity>\d+\.\d+)$";  // Matches:  "any string-name-you want-0.1.wav" 
             string _pattern2 = @"^(?<intensity>\d+\.\d+)_"; // matches: "0.10_any name-you_want_to-call-version2.wav"
+            string _pattern3 = @"^(?<intensity>\d+\.\d+)\s+"; // matches: "0.10 any other_name-you-want.wav"
+            string _pattern4 = @"^(?<intensity>\d+\.*\d*)(_|-|\s)+"; // attempts to matches: all of the above
             
+            // TODO: make this a loop with a handful of patterns that are documented somewhere.
             Match _layer_intensity_split = Regex.Match(layer.clip.name, _pattern);
-            if (! Regex.IsMatch(layer.clip.name, _pattern))
+            if (_layer_intensity_split.Length <= 0)
             {
                 _layer_intensity_split = Regex.Match(layer.clip.name, _pattern2);
+            }
+            if (_layer_intensity_split.Length <= 0)
+            {
+                _layer_intensity_split = Regex.Match(layer.clip.name, _pattern3);
+            }
+            if (_layer_intensity_split.Length <= 0)
+            {
+                _layer_intensity_split = Regex.Match(layer.clip.name, _pattern4);
+            }
+
+            if (_layer_intensity_split.Length <= 0)
+            {
+                Debug.LogWarning($"this layer name is not in any of the filename patterns I recognize, so it will not be played: {layer.clip.name} ");
+                continue;
             }
 
             float _my_layer_float = float.Parse(_layer_intensity_split.Groups["intensity"].Value); 
@@ -139,6 +156,18 @@ public class MusicManager : MonoBehaviour
         yield return new WaitForSeconds(timeUntilFade);
         // Debug.Log($"Set audio back to {startIntensity}");
         intensity = startIntensity;  // NOTE: this re-runs the PlayAllLayers at each set if we use the public setter 
+    }
+    
+    // if an event in the game knows that it wants to play a particular layer, or a particular group of intensity
+    // layers, this allows them to fade *just* those layers in
+    public void PlayIntensityRange(float lowestIntensity, float highestIntensity, float fadeTime)
+    {
+    }
+
+    // raises the music intensity up to the requested intensity for a limited number of seconds, then return to
+    // whatever the intensity was before the method was called.
+    public void TemporaryIntensity(float targetIntensity, float timeUntilReturn)
+    {
     }
 
 }
