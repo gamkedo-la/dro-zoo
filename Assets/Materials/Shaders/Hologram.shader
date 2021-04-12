@@ -2,7 +2,6 @@ Shader "Custom/Hologram"
 {
     Properties
 	{
-		_Opacity("Opacity", Float) = 1
 		_Emission("Emission", Float) = 2
 		_bias("bias", Float) = 1
 		_scale("scale", Float) = 1
@@ -32,7 +31,6 @@ Shader "Custom/Hologram"
 		uniform float _scale;
 		uniform float _power;
 		uniform float _Emission;
-		uniform float _Opacity;
 		uniform sampler2D _TextureSample0;
 		uniform float _pannerspeed;
 		float4 _TextureSample0_TexelSize;
@@ -49,7 +47,7 @@ Shader "Custom/Hologram"
 			float4 ase_screenPosNorm = ase_screenPos / ase_screenPos.w;
 			ase_screenPosNorm.z = ( UNITY_NEAR_CLIP_VALUE >= 0 ) ? ase_screenPosNorm.z : ase_screenPosNorm.z * 0.5 + 0.5;
 			float2 panner39 = ( 1.0 * _Time.y * temp_cast_0 + (( ase_screenPosNorm * _ScreenParams * _TextureSample0_TexelSize )).xy);
-			float4 temp_output_10_0 = ( _Opacity * tex2D( _TextureSample0, panner39 ) );
+			float4 temp_output_10_0 = ( i.vertexColor.a * tex2D( _TextureSample0, panner39 ) );
 			o.Emission = ( fresnelNode3 * i.vertexColor * _Emission * temp_output_10_0 ).rgb;
 			o.Alpha = temp_output_10_0.r;
 		}
