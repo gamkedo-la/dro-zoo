@@ -7,7 +7,7 @@ public class PowerUpSequencePuzzle : MonoBehaviour
 {
 
     public List<PowerUp> powerUps = new List<PowerUp>();
-    private List<PowerUp> activatedPowerUps = new List<PowerUp>();
+    public List<PowerUp> activatedPowerUps = new List<PowerUp>();
 
     public bool puzzleIsCompleted{
         get{return isMatch;}
@@ -53,6 +53,7 @@ public class PowerUpSequencePuzzle : MonoBehaviour
         }
 
         if(isInList){
+           
             //check if the current order of activated powerups matches the correct order
             bool partialMatch = false;
             for (int i = 0; i < activatedPowerUps.Count; i++){
@@ -69,10 +70,11 @@ public class PowerUpSequencePuzzle : MonoBehaviour
             // assuming we didn't break out above, we have now successfully activated the next piece of the puzzle
             //to avoid raising the intensity after the puzzle is reset, check if the puzzle is a partial match before raising intensity
             if(partialMatch){
+                 
                 if(musicManager != null) // modified by zac 
                 {
                     musicManager.intensity += musicIntensityGrowthAmount;
-                    return; // end modified by zac 
+                    //return; // end modified by zac //I removed this, because it was preventing the sequence puzzles from completing. Antti L.
                 } 
             }
             
