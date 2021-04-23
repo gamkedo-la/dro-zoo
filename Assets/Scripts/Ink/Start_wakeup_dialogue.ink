@@ -41,7 +41,7 @@ AN-1-NA HASHxINPUT sent: drone [PHY-5-OH] - return HASHxKEY for 484f4d455445414d
                 *** [Proceed]
                     -> HumanSpeechInstall
     * - ERROR
-        KosmosAI.InitSound(sigh) //Meant to joke that the AI has sighed, must be playtested (may be too obscure?)
+        KosmosAI.InitSound(sigh)
         KosmosAI.ModuleMemAssign(patience)
         [Sys: AN-1-NA has overriden error response]
         DroneInstructSet.AbortTest(CommsTest)
@@ -50,50 +50,7 @@ AN-1-NA HASHxINPUT sent: drone [PHY-5-OH] - return HASHxKEY for 484f4d455445414d
         Fear not, dear [NAME:PHY-5-OH]. Please stand by.
         ->HumanSpeechInstall
             
-    //Placeholder for updated comical interaction (security test challenge using random absurd sentences. In prior version it used weird SHA1 but they can't be retranslated. Will update in v2.
-    //* - DroneResponse.Positive(CommsTest)
-    //    //Meant as a hidden joke sort of thing. Uses text challenge and response for a bit of fun. Will refine or remove based on //testing if found ineffective or dragging.
-    //    ->CryptoMaze
-    //    =CryptoMaze
-    //    DroneInstructSet.InitSecTest(PHY-5-OH)
-    //        ** DroneResponse.Positive()
-    //            [Sys: AN-1-NA cryptographic test will begin]
-    //            [Mode: HASHAI randomized input cryptotest]
-    //            DroneInstructSet.SecTest(HASHAIv31)
-    //            HASHxINPUT 6D616BC5095F43AE7AE33F31B5411584C02F2E7C //Used SHA1 generator(passwordsgenerator.net/sha1-hash-generator///). This was returned from text "PHY5OH, do you copy?"
-    //                ***HASHxRETURN BA458A2D1681A38EF4406FC8501CFD08F561FC7D  //SHA1 PHYTOH COPY (Correct response. In the next //iteration the player can't actually win)
-    //                    [Sys: Initial test passed. Beginning HASHAI instruction transfer]
-    //                    HASHxINPUT C26307E6BCAE069FA566A331958814886ED6E3E2 //SHA1 WONDERFUL.ARE YOU READY TO PROCEED WITH THE //MISSION WE HAVE? (We will force player to transition to natural language otherwise this drags)
-    //                        ****HASHxRETURN F793C5DF2775327157CB68F5BD474E1C54B59902 //SHA1 RETURN SYSTEM OVERLOAD. CANNOT PROCESS OR //TRANSLATE.
-    //                            DroneInstructSet.AbortSectTest(HASHAIv31)
-    //                            ->CryptoMazeTransition
-    //                        ****HASHxRETURN 96FA0794AE97B7F6CBC4D616F08D0D719EBD300F //SHA1 ALL YOUR BASE ARE BELONG TO US :)
-    //                            KosmosAI.InitSound(sigh)
-    //                            DroneInstructSet.AbortSectTest(HASHAIv31)
-    //                            -> CryptoMazeTransition
-    //                        ****?????
-    //                            KosmosAI.InitSound(sigh)
-    //                            DroneInstructSet.AbortSectTest(HASHAIv31)
-    //                            -> CryptoMazeTransition
-    //                ***HASHxRETURN 3B61AC2656598831337DD574E9B2ABB6878BED3F //SHA1 SERVANT BOT READY TO VACUUM
-    //                    KosmosAI.InitSound(sigh)
-    //                    DroneInstructSet.AbortSectTest(HASHAIv31)
-    //                    ->CryptoMazeTransition
-    //                ***??????????????
-    //                    ->CryptoMazeTransition
-    //        **???
-    //            ->CryptoMazeTransition
-    //            =CryptoMazeTransition
-    //                KosmosAI.LoadModule(Speech, "english")
-    //                [Sys:AN-1-NA natural language module loaded]
-    //                I must admit, my dear PHY-5-OH, that I was quite surprised by your responsiveness after such a long standby //period! Very impressive for a research support drone. You are definitely the right choice. Shall we move on //to more productive matters?
-    //                    * ???
-    //                    ->HumanSpeechInstall
-    //                    * DroneResponse.Positive()
-    //                    ->HumanSpeechInstall
 ===HumanSpeechInstall===
-//Transitional dialogue to justify and enable player's human responses
-//Will give option to player to get more info (goes to Questions menu) or move straight ahead to play (controls + goals are provided)
 KosmosAI.Speech()
 [NAME: PHY-5-OH] please stand by. Your [MODULE: humanspeech response] will now be activated.
 DroneInstructSet.LoadModule(PHY-5-OH, Speech, "english")
@@ -143,7 +100,6 @@ KosmosAI.Speech()
 ->StartPlaying
 
 =MissionIntro
-//Explain that we went on exploration, found a few cool plants and are coming back. Something is wrong with the systems, she can "sense" it. It's the fungus but we don't yet know.
 KosmosAI.Print(Env_status)
 LOCATION: MBS Cholormid
 CATEGORY: Mobile Botany Station
