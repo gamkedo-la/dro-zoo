@@ -408,7 +408,7 @@ RectTransform:
   m_GameObject: {fileID: 334607983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.95, y: 0.95, z: 1}
   m_Children: []
   m_Father: {fileID: 988717252}
   m_RootOrder: 0
@@ -438,7 +438,45 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Credits
+  m_text: 'Andy King: Project lead, core gameplay, player movement, camera code,
+    player model, lighting, main environment design, original controls, inverse kinematics
+    setup and tuning, animations, reactor, post processing, greebling, tunnel obstacles,
+    cables, softshape workflow, shaders (vertex color/alpha, crepuscular beams, hologram,
+    pulsing), additional integration
+
+    Zac Bogner: Power room setup, door model
+    and related integration, quality settings, interactive menu, input device detection,
+    additional input experiments/tuning, assorted bug fixing, pause menu polish
+
+    Antti
+    Lipsanen: Mute feature, thrust particle systems, powerup implementation, sequence
+    puzzle script, improved animation support, initial options menu including sound
+    mixer, pause key
+
+    Andrew Hind: Ambient music, sounds (drone hum, collision,
+    menu button, door opening, cable drop)
+
+    Mark McCorkle: Music manager with
+    example layers, music integration
+
+    Tyler Pelaez: Control panel model/materials,
+    bulbous plant (concepts, model, UV)
+
+    Sergio Ferrer: Door script
+
+    Ryan
+    Lewis: Test shelf
+
+    Himar Gil Hernandez: Initial dialog
+
+    Ben Stone: Demo
+    test scene
+
+    Chris DeLeon: Minor input fix, compiled credits
+
+
+    Project
+    created by members in HomeTeamGameDev.com Lighthouse'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d5eef3c23429a54a85be3f056ed5ccd, type: 2}
   m_sharedMaterial: {fileID: 6594567654920182862, guid: 2d5eef3c23429a54a85be3f056ed5ccd,
@@ -466,14 +504,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33.6
+  m_fontSize: 18
   m_fontSizeBase: 33.6
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1119,8 +1157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 164.651, y: -252.99791}
-  m_SizeDelta: {x: 619.3297, y: 180.2021}
+  m_AnchoredPosition: {x: 87.292, y: -502.2353}
+  m_SizeDelta: {x: 1036.2, y: 496.8935}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &988717253
 MonoBehaviour:
