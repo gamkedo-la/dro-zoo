@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Collections.Generic;//needed to use Lists
 using Ink.Runtime;
 using TMPro;
 
@@ -40,6 +41,16 @@ public class BasicInkExample : MonoBehaviour {
 			CreateContentView(text);
 		}
 
+		List<string> tags = story.currentTags;
+		if (tags.Count >0)
+		{
+			Debug.Log("Text: " + tags[0]);
+			if (tags[0].Contains("canvasoff")){
+				Debug.Log("picked up tag");
+				canvas.enabled = false;
+			}
+		}
+
 		// Display all the choices, if there are any!
 		if(story.currentChoices.Count > 0) {
 			for (int i = 0; i < story.currentChoices.Count; i++) {
@@ -51,13 +62,15 @@ public class BasicInkExample : MonoBehaviour {
 				});
 			}
 		}
+
 		// If we've read all the content and there's no choices, the story is finished!
-		else {
-			Button choice = CreateChoiceView("End of story.\nRestart?");
-			choice.onClick.AddListener(delegate{
-				StartStory();
-			});
-		}
+		//else {
+			//Button choice = CreateChoiceView("End of story.\nRestart?");
+			//choice.onClick.AddListener(delegate{
+				//StartStory();
+			//});
+		//}
+
 	}
 
 	// When we click the choice button, tell the story to choose that choice!

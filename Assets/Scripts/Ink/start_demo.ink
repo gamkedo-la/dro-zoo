@@ -1,5 +1,5 @@
 
-....tion protocols. I repeat PHY-5-OH this is AN-1-NA bring up your communication protocols #AN
+....tion protocols. I repeat PHY-5-OH this is AN-1-NA bring up your communication protocols #DR
 -> start
 
 === start ===
@@ -24,7 +24,7 @@ Response code 33%488%883 - Confirmed - Revival class AI with command authority #
  
  === where_am_i ===
  
-Arcus reset complete - Location - Biology Research vessel Cholormid - Drone repair bay
+Arcus reset complete - Location - Biology Research vessel Cholormid - Drone repair bay #canvasoff
 -> start
 
 
