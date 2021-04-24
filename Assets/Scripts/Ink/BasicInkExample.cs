@@ -44,9 +44,9 @@ public class BasicInkExample : MonoBehaviour {
 		List<string> tags = story.currentTags;
 		if (tags.Count >0)
 		{
-			Debug.Log("Text: " + tags[0]);
+			//Debug.Log("Text: " + tags[0]);
 			if (tags[0].Contains("canvasoff")){
-				Debug.Log("picked up tag");
+				//Debug.Log("picked up tag");
 				canvas.enabled = false;
 			}
 		}
