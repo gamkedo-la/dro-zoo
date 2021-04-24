@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7192124682576498173}
   - component: {fileID: -4190578631686210055}
   - component: {fileID: -2696087345286122854}
+  - component: {fileID: 2675607342086623965}
   m_Layer: 5
   m_Name: Ink Text Prefab
   m_TagString: Untagged
@@ -177,3 +178,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &2675607342086623965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7192124682576498175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b224c1d652b234090f3a30befdb76a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

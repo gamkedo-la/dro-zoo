@@ -34,12 +34,13 @@ public class BasicInkExample : MonoBehaviour {
 		// Read all the content until we can't continue any more
 		while (story.canContinue) {
 			// Continue gets the next line of the story
-			string text = story.Continue ();
+			string text = story.ContinueMaximally ();
 			// This removes any white space from the text.
 			text = text.Trim();
 			// Display the text on screen!
 			CreateContentView(text);
 		}
+
 
 		List<string> tags = story.currentTags;
 		if (tags.Count >0)
