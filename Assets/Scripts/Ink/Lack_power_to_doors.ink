@@ -5,24 +5,24 @@
 ===EnterRoom===
 KosmosAI.Speech()
 Attention [NAME:PHY-5-OH], your [ACTION: ASSISTANCE] is needed.
-    * What is the problem?
+    * [What is the problem?]
         -> DoorIssueExplain
-    * How can I help?
+    * [How can I help?]
         ->LevelGoal
-    * I sure need help too... hovering is tough!
+    * [I sure need help too... hovering is tough!]
         ->Encourage
 ===QuestionsMenu===
-    + What is the problem?
+    + [What is the problem?]
     -> DoorIssueExplain
-    + How can I help?
+    + [How can I help?]
     -> LevelGoal
-    + I'm still not sure I can do this...
+    + [I'm still not sure I can do this...]
     -> Encourage
-    * Do you know what is causing this? Is our mission at risk?
+    * [Do you know what is causing this? Is our mission at risk?]
     -> MissionResults
-    * Where are the rest of the crew?
+    * [Where are the rest of the crew?]
     -> Humans
-    * Thank you. I am ready to go.
+    * [Thank you. I am ready to go.]
     -> LetMePlay
 ==DoorIssueExplain==
 KosmosAI.LoadItemDescription(Issue_DB, PowerAccess)
@@ -35,9 +35,9 @@ KosmosAI.Speech()
 In order to proceed with the assigned task, please identify and apply a solution.
 
 Repeat or continue?
-    + Repeat
+    + [Repeat]
     ->DoorIssueExplain
-    + Continue
+    + [Continue]
     ->QuestionsMenu
 
 ==LevelGoal==
@@ -49,9 +49,9 @@ KosmosAI.LocateInMap(MBS_Cholormid,"Generator")
 A [COMPONENT: SUPPORT GENERATOR] should be available in this room and is the recommended solution.
 
 Repeat or continue?
-    + Repeat
+    + [Repeat]
     -> LevelGoal
-    + Continue
+    + [Continue]
     ->QuestionsMenu
     
 ==Encourage==
@@ -66,9 +66,9 @@ KosmosAI.Speech()
 {All our dreams can come true, if we have the courage to pursue them.|The secret of getting ahead is getting started.|It’s hard to beat a person who never gives up.|If people are doubting how far you can go, go so far that you can’t hear them anymore.|Don’t limit yourself. Many people limit themselves to what they think they can do. You can go as far as your mind lets you. What you believe, remember, you can achieve.|Only the paranoid survive.|Just chill, drone. Chill}
 
 Repeat or continue?
-    + Repeat
+    + [Repeat]
     -> Encourage //Can we cycle through different positive responses? Check in Ink documentation
-    + Continue
+    + [Continue]
     ->QuestionsMenu
     
 ==MissionResults==
@@ -81,12 +81,13 @@ Our [ELEMENT: Cargo] is not at all under risk. We are just fine, my adorable dro
 Let's just fix it. All of it. Routinarily as usual.
 
 Repeat or continue?
-    + Repeat
+    + [Repeat]
     //Insert an evasive response and send back to menu (Himar to explore Ink's capability to save responses and generate a different one here
     Stop worrying my dear! You dear drones sure have an advanced [COMPONENT: Neural network] these days! Our mission is fine, just fine... our human administrators will be so proud. So. Proud! 
+    
     Great!
     ->QuestionsMenu
-    + Continue
+    + [Continue]
     ->QuestionsMenu
     
 ==Humans==
@@ -112,11 +113,11 @@ Very bad for their vitamines too. And their health is, well, mission critical is
 Oh well! Let's solve this by ourselves shall we? I'm sure we can!
 
     Repeat or continue?
-    + Repeat
+    + [Repeat]
     KosmosAI.Speech()
     Yeah, eh... no I think it's clear thanks.
     ->QuestionsMenu
-    + Continue
+    + [Continue]
     ->QuestionsMenu
 
 ===LetMePlay===

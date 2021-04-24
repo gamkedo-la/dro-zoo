@@ -17,11 +17,11 @@ KosmosAI.LoadModule(Speech, "english")
 [Sys:AN-1-NA natural language module loaded]
 [NAME: PHY-5-OH], please respond. Attempting to validate function [COMMUNICATIONS].
 AN-1-NA HASHxINPUT sent: drone [PHY-5-OH] - return HASHxKEY for 484f4d455445414d2047414d45444556 [Sys: awaiting response] //Hex from "HOMETEAM GAMEDEV". Initially thought of SHA1 but user would not be able to convert. Could be a cool easter egg :)
-    * - ???
+    * [???]
         KosmosAI.Speech()
         Apologies dear [NAME:PHY-5-OH]. I missed [INPUTMETHOD: humanspeech] required for drone instruction. Requesting confirmation: is message readable?
         
-            **DroneResponse.Positive()
+            **[DroneResponse.Positive()]
                 KosmosAI.Speech()
                 Return assessment: confused. Requesting [NAME: PHY-5-OH] operational efficiency. Shared goals pending. Unavailable [RESOURCE: TIME] for [ACTIVITY: COMEDY].
                 KosmosAI.Speech()
@@ -32,7 +32,7 @@ AN-1-NA HASHxINPUT sent: drone [PHY-5-OH] - return HASHxKEY for 484f4d455445414d
                 *** [Proceed]
                 -> HumanSpeechInstall
                 
-            **?????
+            **[?????]
                 KosmosAI.Speech()
                 Return assessment: concern. Initiating test [RESPONSE_MODULE] at [NAME:PHY-5-OH].
                 DroneInstructSet.ModuleTest(DroneResponse)
@@ -40,7 +40,7 @@ AN-1-NA HASHxINPUT sent: drone [PHY-5-OH] - return HASHxKEY for 484f4d455445414d
                 KosmosAI.InputKey(Y)
                 *** [Proceed]
                     -> HumanSpeechInstall
-    * - ERROR
+    * [ERROR]
         KosmosAI.InitSound(sigh)
         KosmosAI.ModuleMemAssign(patience)
         [Sys: AN-1-NA has overriden error response]
@@ -60,13 +60,13 @@ TIP: You may feel a tingling in your frontal subprocessor modules during the ins
 
 KosmosAI.Speech()
 [NAME: PHY-5-OH], please confirm human speech is now active.
-    * I confirm I can now speak using human patterns.
+    * [I confirm I can now speak using human patterns.]
         KosmosAI.InitSound(fanfare)
         KosmosAI.Speech()
         Return assessment: optimal. Unavailable [RESOURCE: TIME] for [ACTIVITY: VICTORY DANCE]. Shared goals pending. Support required.
         ->ReadOrPlay
         
-    * I am unsure this has worked.
+    * [I am unsure this has worked.]
         KosmosAI.InitSound(giggle)
         KosmosAI.Speech()
         Return assessment: funny. [NAME: PHY-5-OH] TAG ADDED: Comedian. Current rate:2/5.
@@ -77,26 +77,26 @@ KosmosAI.Speech()
 KosmosAI.Speech()
 [NAME: PHY-5-OH], your [CURRENT_STATUS] displays incomplete [CHARGE]. Database records may appear missing or non responsive. Request confirmation: proceed to task OR consult help?
 
-* I have some questions, please.
+* [I have some questions, please.]
 ->QuestionsMenu
 
-* I am fine. Let's start working.
+* [I am fine. Let's start working.]
 ->LetMePlay
 
 ===QuestionsMenu===
-* Where are we?
+* [Where are we?]
 ->MissionIntro
 
-* Who are you?
+* [Who are you?]
 ->CharactersIntro
 
-* What do we have to do?
+* [What do we have to do?]
 ->RoomGoal
 
-* How do I move?
+* [How do I move?]
 ->ControlsExplanation
 
-* Thank you. Let's start working.
+* [Thank you. Let's start working.]
 ->StartPlaying
 
 =MissionIntro
@@ -111,9 +111,9 @@ KosmosAI.Print (DroneInstructSet.Location(PHY-5-OH))
 PHY-5-OH LOCATION: Drone Maintenance Bay (MBS CholorMid)
 
 Repeat or continue?
-    * Repeat
+    * [Repeat]
     -> MissionIntro
-    * Continue
+    * [Continue]
     ->QuestionsMenu
 
 =ControlsExplanation
@@ -130,9 +130,9 @@ I trust you will succeed.
 [Document ends.]
 
 Repeat or continue?
-    * Repeat
+    * [Repeat]
     -> ControlsExplanation
-    * Continue
+    * [Continue]
     -> QuestionsMenu
 
 =CharactersIntro
@@ -145,9 +145,9 @@ ASSIGNMENT: MBS Cholormid - Support crew - Drone management
 CURRENT LINKS: Vessels [MBS Cholormid], Research Assistant Drone [PHY-5-OH]
 
 Repeat or continue?
-    * Repeat
+    * [Repeat]
     -> CharactersIntro
-    * Continue
+    * [Continue]
     ->QuestionsMenu
 
 =RoomGoal
@@ -165,9 +165,9 @@ PROPOSED REMEDIATION: Manually restore supply [POWER_SUPPORT.GENERAL], identify 
 NEXT STEPS: [NAME:PHY-5-OH] exit Drone Maintenance Bay
 
 Repeat or continue?
-    * Repeat
+    * [Repeat]
     -> RoomGoal
-    * Continue
+    * [Continue]
     ->QuestionsMenu
 
 =StartPlaying
