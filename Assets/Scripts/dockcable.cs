@@ -12,6 +12,9 @@ public class dockcable : MonoBehaviour
     [SerializeField]
     private GameObject plant2;
 
+    [SerializeField]
+    private AudioSource cableplugin;
+
     private MusicManager _musicManager;
     
     private void Awake()
@@ -25,6 +28,8 @@ public class dockcable : MonoBehaviour
         plant1.GetComponent<Animator>().SetTrigger("Grow");
         plant2.GetComponent<Animator>().SetTrigger("Grow");
         
+        cableplugin.Play();
+
         if (_musicManager)
         {
             _musicManager.intensity += 0.05f;
