@@ -38,7 +38,7 @@ public class LoadMenus_Manager_ZacB : MonoBehaviour
         if(isPressedStartGame == true && mM.startGame == true || isPressedStartGame == true)
         {
             Debug.Log("Start Game");
-            SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
+            SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
             return;
         }
     }
