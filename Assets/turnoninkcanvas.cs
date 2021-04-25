@@ -7,8 +7,8 @@ public class turnoninkcanvas : MonoBehaviour
     
     [SerializeField]
     private Canvas inkcanvas;
-    [SerializeField]
-    private TextAsset inkJSONAsset = null; 
+    //[SerializeField]
+   // private TextAsset inkJSONAsset = null; 
 
 void OnTriggerEnter(Collider other)
     {
