@@ -832,7 +832,7 @@ PrefabInstance:
         type: 3}
       propertyPath: inkJSONAsset
       value: 
-      objectReference: {fileID: 4900000, guid: 633f821109d3d384fa4512d9b5abccbf, type: 3}
+      objectReference: {fileID: 4900000, guid: 23d2fe1d907c8dc4e913a6132f8dc461, type: 3}
     - target: {fileID: 7483460653508166174, guid: c2c92d535c1fe724bb4d29d0f0fff149,
         type: 3}
       propertyPath: m_Name
