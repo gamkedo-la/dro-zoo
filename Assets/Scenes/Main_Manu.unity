@@ -466,24 +466,24 @@ MonoBehaviour:
     Mark McCorkle: Music manager with
     example layers, music integration
 
-    Tyler Pelaez: Control panel model/materials,
-    bulbous plant (concepts, model, UV)
+    Himar Gil Hernandez: All dialogue scripts
 
-    Sergio Ferrer: Door script
+    Tyler
+    Pelaez: Control panel model/materials, bulbous plant (concepts, model, UV)
 
-    Ryan
-    Lewis: Test shelf
+    Sergio
+    Ferrer: Door script
 
-    Himar Gil Hernandez: Initial dialog
+    Ryan Lewis: Test shelf
 
-    Ben Stone: Demo
-    test scene
+    Ben Stone: Demo test scene
 
-    Chris DeLeon: Minor input fix, compiled credits
+    Chris
+    DeLeon: Minor input fix, compiled credits
 
 
-    Project
-    created by members in HomeTeamGameDev.com Lighthouse'
+    Project created by members in
+    HomeTeamGameDev.com Lighthouse'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d5eef3c23429a54a85be3f056ed5ccd, type: 2}
   m_sharedMaterial: {fileID: 6594567654920182862, guid: 2d5eef3c23429a54a85be3f056ed5ccd,
