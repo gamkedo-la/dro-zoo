@@ -13407,6 +13407,11 @@ PrefabInstance:
       propertyPath: m_BounceIntensity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7748678775134908567, guid: 669848700040f5b4ea35d2700d160195,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7782905392195922792, guid: 669848700040f5b4ea35d2700d160195,
         type: 3}
       propertyPath: m_RootOrder
