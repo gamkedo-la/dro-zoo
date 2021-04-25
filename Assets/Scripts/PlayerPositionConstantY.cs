@@ -10,7 +10,7 @@ public class PlayerPositionConstantY : MonoBehaviour
   public float cameraxoffset;
   public float camerazoffset;
    
-    void Update()
+    void FixedUpdate()
     {
         Vector3 targetPosition = follow.position;
         //transform.position = new Vector3(follow.position.x  ,cameraheight, follow.position.z );
