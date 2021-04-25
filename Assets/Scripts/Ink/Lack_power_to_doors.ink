@@ -130,8 +130,9 @@ Thank you, [NAME:PHY-5-OH]. Ending communication. The following [INFORMATION] ha
 {MissionResults: Just a little hiccup. A little anomaly really! We have these here and there in every mission... nothing to worry about!} //This is conditional text only shown if player asked about the mission at risk. Anna is embarrassed and we stress it with this answer.
 
 {Humans: Go you! We can do it without the humans even noticing... yeah! } //This is conditional text only shown if player asked about the human crew. Anna is embarrassed and we stress it with this answer.
--> END
 
+#canvasoff
+-> END
 
 
     

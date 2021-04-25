@@ -181,7 +181,7 @@ NEXT STEPS: [NAME:PHY-5-OH] exit Drone Maintenance Bay
 [Sys: drone decoupling sequence completed]
 
 Good luck.
-
+#canvasoff
 -> END
 
 ===LetMePlay===
@@ -195,4 +195,5 @@ NEXT STEPS: [NAME:PHY-5-OH] exit Drone Maintenance Bay
 [Sys: drone decoupling sequence completed]
 
 Good luck.
+#canvasoff
 -> END
