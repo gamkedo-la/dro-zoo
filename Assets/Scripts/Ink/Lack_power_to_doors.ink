@@ -133,7 +133,3 @@ Thank you, [NAME:PHY-5-OH]. Ending communication. The following [INFORMATION] ha
 
 #canvasoff
 -> END
-
-
-    
-    
