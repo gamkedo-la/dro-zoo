@@ -61,13 +61,13 @@ public class LoadMenus_Manager_ZacB : MonoBehaviour
                 if (mM.playerInput.actions.FindAction("Submit").Equals("Submit[Any]"))                 
                 {
                     Debug.Log("Starting Game");
-                    SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
+                    SceneManager.LoadSceneAsync(1, LoadSceneMode.Single); // 0, loads menu, 1 loads game scene 
                 }
 
                 if (Keyboard.current.enterKey.isPressed && mM.startGame == true)
                 {
                     Debug.Log("Doing something");
-                    SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
+                    SceneManager.LoadSceneAsync(1, LoadSceneMode.Single); // 0 loads menu, 1 loads game scene 
                 }
             }
         }
