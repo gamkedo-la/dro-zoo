@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement; 
 using UnityEngine;
 
+
 public class EnterPowerRoom : MonoBehaviour
 {
+
+    [SerializeField]
+    private int scenenumber;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.name == "Player")
         {
             StartCoroutine(LoadPowerRoomScene()); 
-            SceneManager.LoadSceneAsync(2);
+            SceneManager.LoadSceneAsync(scenenumber);
             return; 
         }
     }
