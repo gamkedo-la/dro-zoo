@@ -36,7 +36,7 @@ public class BasicInkExample : MonoBehaviour {
 			// Continue gets the next line of the story
 			string text = story.ContinueMaximally ();
 			// This removes any white space from the text.
-			text = text.Trim();
+			//text = text.Trim();
 			// Display the text on screen!
 			CreateContentView(text);
 		}
