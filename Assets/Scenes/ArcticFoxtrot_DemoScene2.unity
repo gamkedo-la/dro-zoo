@@ -11449,7 +11449,7 @@ PrefabInstance:
         type: 3}
       propertyPath: inkJSONAsset
       value: 
-      objectReference: {fileID: 4900000, guid: 78acd8bf6a1ad804397ea2f5c96929a4, type: 3}
+      objectReference: {fileID: 4900000, guid: 23d2fe1d907c8dc4e913a6132f8dc461, type: 3}
     - target: {fileID: 7483460653508166174, guid: c2c92d535c1fe724bb4d29d0f0fff149,
         type: 3}
       propertyPath: m_Name
@@ -12958,7 +12958,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062801679}
-  m_LocalRotation: {x: 0.019457256, y: -0.35139742, z: 0.007304766, w: 0.9359957}
+  m_LocalRotation: {x: 0.019457234, y: -0.3513974, z: 0.0073047574, w: 0.9359957}
   m_LocalPosition: {x: -9.904305, y: 3.696, z: -10.874}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -13360,7 +13360,7 @@ PrefabInstance:
     - target: {fileID: 7442690533475955154, guid: 669848700040f5b4ea35d2700d160195,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7748678774927290928, guid: 669848700040f5b4ea35d2700d160195,
         type: 3}
