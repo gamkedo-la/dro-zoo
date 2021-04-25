@@ -84,11 +84,11 @@ public class AutomaticDoor : MonoBehaviour
 
         if(!open) 
         {
-            powerDoorText.gameObject.SetActive(true);
+            //powerDoorText.gameObject.SetActive(true);
         }
         else
         {
-            powerDoorText.gameObject.SetActive(false);
+            //powerDoorText.gameObject.SetActive(false);
         } 
     }
     // end modified by zac 
@@ -100,13 +100,13 @@ public class AutomaticDoor : MonoBehaviour
 
         if (!open) // added by zac
         {
-            powerDoorText.gameObject.SetActive(false);
+            //powerDoorText.gameObject.SetActive(false);
         }
         else
         {
             if(open)
             {
-                powerDoorText.gameObject.SetActive(true);
+                //powerDoorText.gameObject.SetActive(true);
             }
         } // end added by zac 
     }
