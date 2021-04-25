@@ -128,6 +128,11 @@ public class PowerUp : MonoBehaviour
         {
             return; 
         }
+
+        if (door == null && !isActivated)
+        {
+            return;
+        }
     }
 
     private void Update()
