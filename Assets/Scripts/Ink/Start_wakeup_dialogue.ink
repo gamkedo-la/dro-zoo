@@ -156,10 +156,6 @@ ANOMALY DETECTED: Performance deviation [STEERING_RULESET]
 ANOMALY DESCRIPTION: Unidentified maneuver requested [RETURN TO ORIGIN]
 ANOMALY CAUSE: Currently unknown
 
-ANOMALY DETECTED(2): Signal delay [AN1NA.SYNAPSOCORD.NETWORK]
-ANOMALY DESCRIPTION: Interference signal pattern detected [PULSE]; supply decrease [POWER_SUPPORT.GENERAL]
-ANOMALY CAUSE: Currently unknown
-
 PROPOSED REMEDIATION: Manually restore supply [POWER_SUPPORT.GENERAL], identify origin [SAMPLES.CARGO]
 
 NEXT STEPS: [NAME:PHY-5-OH] exit Drone Maintenance Bay
