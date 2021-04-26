@@ -2168,6 +2168,10 @@ GameObject:
   - component: {fileID: 832048241}
   - component: {fileID: 832048240}
   - component: {fileID: 832048243}
+  - component: {fileID: 832048246}
+  - component: {fileID: 832048245}
+  - component: {fileID: 832048244}
+  - component: {fileID: 832048247}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2274,6 +2278,125 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &832048244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832048239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca77df28d7c3de2448e8fb7f78fc602b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerControls: {fileID: -944628639613478452, guid: 90fcccec4308c4a44a0b95061cff6906,
+    type: 3}
+  muteButtonAudio: {fileID: 8300000, guid: 49ccd51f48cf4474f8d9c96ae4b63e14, type: 3}
+  UIMixerGroup: {fileID: -3803503955868257435, guid: 3b7444b0037b3c949a69e476f2e45878,
+    type: 2}
+--- !u!114 &832048245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832048239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77bbde08eb8a06a4088c72cf2a3b1f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  refresh: 0
+  avgFramerate: -2.147484e+9
+  fpscounter: {fileID: 841883989}
+--- !u!114 &832048246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832048239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98cb1545abdbbe541980b7299f29120c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &832048247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832048239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 832048242}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 1
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles:
+  - assemblyQualifiedName: postprocesstestPPSSettings, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &841883989 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7759840496039775112, guid: 134ba6f2ecac41f4daafce2980144296,
+    type: 3}
+  m_PrefabInstance: {fileID: 108459345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &882488160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3209,7 +3332,7 @@ PrefabInstance:
     - target: {fileID: 8953715072858830222, guid: 80a7955148bccc349a7913ab4fec4eda,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.010661404
+      value: -0.010661402
       objectReference: {fileID: 0}
     - target: {fileID: 8953715072858830222, guid: 80a7955148bccc349a7913ab4fec4eda,
         type: 3}

@@ -76,4 +76,9 @@ public class LoadMenus_Manager_ZacB : MonoBehaviour
             return; 
         }
     }
+
+    public void OnApplicationQuit() // Quit application function call 
+    {
+        Application.Quit(); 
+    }
 }
