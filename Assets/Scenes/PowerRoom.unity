@@ -1371,6 +1371,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7300a04dc3e92e43bef96b728044590, type: 3}
+--- !u!1 &613807341 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2608270051225319674, guid: 7fafa0f281e9eaf40af47de64c9693d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 608136305}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &613807342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613807341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb20e2d5dd426124d8aa2d4e61919777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions: {fileID: -944628639613478452, guid: 90fcccec4308c4a44a0b95061cff6906, type: 3}
+  keyboard: 0
+  controller: 0
 --- !u!1001 &616449396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2309,7 +2330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 0
   refresh: 0
-  avgFramerate: -2.147484e+9
+  avgFramerate: 37
   fpscounter: {fileID: 841883989}
 --- !u!114 &832048246
 MonoBehaviour:
@@ -2392,7 +2413,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 108459345}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -3332,7 +3353,7 @@ PrefabInstance:
     - target: {fileID: 8953715072858830222, guid: 80a7955148bccc349a7913ab4fec4eda,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.010661402
+      value: -0.010661404
       objectReference: {fileID: 0}
     - target: {fileID: 8953715072858830222, guid: 80a7955148bccc349a7913ab4fec4eda,
         type: 3}
