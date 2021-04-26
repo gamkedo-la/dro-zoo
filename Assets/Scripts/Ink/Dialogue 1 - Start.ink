@@ -106,16 +106,15 @@ FLIGHT PLAN STAGE: Homebound routine initiated. On track to Earth.
 KosmosAI.Print (DroneInstructSet.Location(PHY-5-OH))
 PHY-5-OH LOCATION: Drone Maintenance Bay (MBS CholorMid)
 
-Repeat or continue?
-    * [Repeat]
-    -> MissionIntro
-    * [Continue]
-    ->QuestionsMenu
+Continue?
+* [Continue]
+->QuestionsMenu
 
 =ControlsExplanation
 KosmosAI.Speech()
 [NAME: PHY-5-OH] your remote control has been overriden. I have now granted you self steering. Surfacing instruction manual. Please stand by.
 KosmosAI.Print(PHY5OH User Manual)
+
 * [Ok]
 [Phy-5-Oh remote control operations manual. Ver: 5.5. Chief Engineer Bluzen)
 To propel the PHY-5-OH unit horizontally in any direction, please use the left rotating stick in your remote operation station.
@@ -127,9 +126,7 @@ Self-operation of support drones can be intimidating: we recommend their Mainten
 I trust you will succeed.
 [Document ends.]
 ****[Close document]
-    Repeat or continue?
-        ***** [Repeat]
-        -> ControlsExplanation
+    Continue?
         ***** [Continue]
         -> QuestionsMenu
 
@@ -166,11 +163,7 @@ Skeletical. And muscular!
 
 Oh well! Let's solve this by ourselves shall we? I'm sure we can!
 
-Repeat or continue?
-    ******* [Repeat]
-    KosmosAI.Speech()
-    Yeah, eh... no I think it's clear thanks.
-    ->QuestionsMenu
+Continue?
     ******* [Continue]
     ->QuestionsMenu
 
@@ -188,9 +181,7 @@ NEXT STEPS: [NAME:PHY-5-OH] exit Drone Maintenance Bay
 ** [Power source restore guide]
 The Cholormid is equipped with standard energy [SPHEROSTARTERS], placed across the walls of this room. You will recognize them by their ring shape. Utilize them to bring power back to [ELEMENT: CARGO ACCESS DOOR]
 
-Repeat or continue?
-    *** [Repeat]
-    -> RoomGoal
+Continue?
     *** [Continue]
     ->QuestionsMenu
 
