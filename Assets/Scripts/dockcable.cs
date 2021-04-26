@@ -16,6 +16,9 @@ public class dockcable : MonoBehaviour
     private AudioSource cableplugin;
 
     private MusicManager _musicManager;
+
+    // temp win state boolean 
+    public bool isGrown; 
     
     private void Awake()
     {
@@ -29,6 +32,7 @@ public class dockcable : MonoBehaviour
         plant2.GetComponent<Animator>().SetTrigger("Grow");
         
         cableplugin.Play();
+        isGrown = true; 
 
         if (_musicManager)
         {
