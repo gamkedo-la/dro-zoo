@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: VertexAlphaSmEmMet
-  m_Shader: {fileID: 4800000, guid: fd004d6a27791994aaed3630a17200bb, type: 3}
+  m_Shader: {fileID: 4800000, guid: 6ee7ccfe5e20c534397f8fe39a8ea9aa, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
